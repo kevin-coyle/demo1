@@ -1,0 +1,29 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #UTILITY-NAV
+\*------------------------------------*/
+
+/**
+ * 1) Navigation in the header for utility items like logging into an account
+ */
+:host {
+  margin-left: auto;
+}
+
+/**
+* Utility nav list
+*/
+.fusion-c-utility-nav__list {
+  display: flex;
+  margin: size(-2) 0 0 size(-2);
+  padding: 0;
+  list-style: none;
+
+  /**
+  * Slotted utility nav item
+  */
+  ::slotted(fusion-utility-nav-item) {
+    margin-left: size(2);
+    margin-top: size(2);
+  }
+}

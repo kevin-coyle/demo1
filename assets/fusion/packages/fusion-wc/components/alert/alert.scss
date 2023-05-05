@@ -1,0 +1,102 @@
+@import 'THEME/component.scss';
+
+/*------------------------------------*\
+    # Alert
+\*------------------------------------*/
+
+/**
+ * 1) Message of information, success, or error to the user
+ */
+.fusion-c-alert {
+  position: relative;
+  padding: size(2);
+  background: var(--fusion-theme-color-content-knockout);
+  border-radius: var(--fusion-theme-border-radius);
+  border-top: var(--fusion-border-width-sm) solid var(--fusion-theme-color-border-subtle);
+  border-right: var(--fusion-border-width-sm) solid var(--fusion-theme-color-border-subtle);
+  border-bottom: var(--fusion-border-width-sm) solid var(--fusion-theme-color-border-subtle);
+  border-left: var(--fusion-border-width-xl) solid var(--fusion-theme-color-content-utility-information);
+}
+
+/**
+ * Alert inner container
+ */
+.fusion-c-alert__inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+/**
+ * Alert success
+ */
+.fusion-c-alert--success {
+  border-left-color: var(--fusion-theme-color-border-utility-success);
+}
+
+/**
+ * Alert error
+ */
+.fusion-c-alert--error {
+  border-left-color: var(--fusion-theme-color-border-utility-error);
+}
+
+/**
+ * Alert icon
+ */
+fusion-icon {
+  position: relative;
+  top: 3px;
+  margin-right: size(2);
+  --fusion-icon-fill: var(--fusion-theme-color-content-utility-information);
+  --fusion-icon-width: #{size(3)};
+  --fusion-icon-height: #{size(3)};
+
+  /**
+  * Alert error icon
+  */
+  .fusion-c-alert--error & {
+    --fusion-icon-fill: var(--fusion-theme-color-content-utility-error);
+  }
+
+  /**
+  * Alert success icon
+  */
+  .fusion-c-alert--success & {
+    --fusion-icon-fill: var(--fusion-theme-color-content-utility-success);
+  }
+}
+
+/**
+ * Alert body
+ * 1) Flex 1 allows the body to take up the remaining space that the icon doesn't occupy
+ */
+.fusion-c-alert__body {
+  @include fusion-theme-typography-body;
+  flex: 1;
+}
+
+/**
+ * Alert description
+ */
+.fusion-c-alert__description {
+  display: block;
+  margin-top: size(1);
+}
+
+/**
+ * Alert title
+ * 1) Negative margin top added to the title
+ */
+.fusion-c-alert__title {
+  position: relative;
+  top: 4px;
+}
+/**
+ * Alert close button
+ * 1) Button used to dismiss dismissable alerts
+ */
+.fusion-c-alert__close-btn {
+  position: relative;
+  bottom: 4px;
+  margin-left: size(3);
+}

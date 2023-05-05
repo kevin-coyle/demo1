@@ -1,0 +1,15 @@
+@import '../../design-tokens/theme-1/component.scss';
+/*------------------------------------*\
+ #AVATAR
+\*------------------------------------*/
+
+/** 
+ * 1) 
+ */
+.fusion-c-avatar {
+  background: #0662bb;
+  color: var(--fusion-theme-color-content-knockout);
+  @include fusion-theme-typography-body-lg;
+  padding: size(0.5) size(1.375);
+  border-radius: 50%;
+}

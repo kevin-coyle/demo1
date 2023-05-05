@@ -1,0 +1,212 @@
+/*------------------------------------*\
+    #TYPOGRAPHY PRESETS
+\*------------------------------------*/
+
+/**
+ * Declare all preset values (font-family, font-weight, font-size, line-height, letter-spacing, and text-transform). Otherwise,
+ * typography utility overrides or BEM typography overrides won't completely override (leftover text transforms/letter-spacing).
+ */
+
+//
+// Typography Preset 1
+//
+@mixin fusion-typography-preset-1($important: null, $responsive: true) {
+  font-family: var(--fusion-font-family-secondary) $important;
+  font-weight: var(--fusion-font-weight-normal) $important;
+  font-size: var(--fusion-font-size-xxl) $important;
+  line-height: var(--fusion-line-height-sm-2) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+
+  @if $responsive == true {
+    @media all and (max-width: $fusion-bp-md) {
+      font-size: var(--fusion-font-size-xl) $important;
+    }
+  }
+}
+
+//
+// Typography Preset 2
+//
+@mixin fusion-typography-preset-2($important: null, $responsive: true) {
+  font-family: var(--fusion-font-family-secondary) $important;
+  font-weight: var(--fusion-font-weight-normal) $important;
+  font-size: var(--fusion-font-size-xl) $important;
+  line-height: var(--fusion-line-height-sm-2) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+
+  @if $responsive == true {
+    @media all and (max-width: $fusion-bp-md) {
+      font-size: var(--fusion-font-size-lg) $important;
+    }
+  }
+}
+
+//
+// Typography Preset 2 Bold
+//
+@mixin fusion-typography-preset-2-bold($important: null) {
+  @include fusion-typography-preset-2($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 3
+//
+@mixin fusion-typography-preset-3($important: null, $responsive: true) {
+  font-family: var(--fusion-font-family-secondary) $important;
+  font-weight: var(--fusion-font-weight-light) $important;
+  font-size: var(--fusion-font-size-lg) $important;
+  line-height: var(--fusion-line-height-sm-2) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+
+  @if $responsive == true {
+    @media all and (max-width: $fusion-bp-md) {
+      font-size: var(--fusion-font-size-md-3) $important;
+    }
+  }
+}
+
+//
+// Typography Preset 3 Bold
+//
+@mixin fusion-typography-preset-3-bold($important: null) {
+  @include fusion-typography-preset-3($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 4
+//
+@mixin fusion-typography-preset-4($important: null) {
+  font-family: var(--fusion-font-family-secondary) $important;
+  font-weight: var(--fusion-font-weight-normal) $important;
+  font-size: var(--fusion-font-size-md-3) $important;
+  line-height: var(--fusion-line-height-sm-2) $important;
+}
+
+//
+// Typography Preset 4 Bold
+//
+@mixin fusion-typography-preset-4-bold($important: null) {
+  @include fusion-typography-preset-4($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 5
+//
+@mixin fusion-typography-preset-5($important: null) {
+  font-family: var(--fusion-font-family-primary) $important;
+  font-weight: var(--fusion-font-weight-regular) $important;
+  font-size: var(--fusion-font-size-md) $important;
+  line-height: var(--fusion-line-height-lg) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+}
+
+//
+// Typography Preset 5 Medium
+//
+@mixin fusion-typography-preset-5-medium($important: null) {
+  @include fusion-typography-preset-5($important);
+  font-weight: var(--fusion-font-weight-medium) $important;
+}
+
+//
+// Typography Preset 5 Bold
+//
+@mixin fusion-typography-preset-5-bold($important: null) {
+  @include fusion-typography-preset-5($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 6
+//
+@mixin fusion-typography-preset-6($important: null) {
+  font-family: var(--fusion-font-family-primary) $important;
+  font-weight: var(--fusion-font-weight-regular) $important;
+  font-size: var(--fusion-font-size-sm) $important;
+  line-height: var(--fusion-line-height-lg) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+}
+
+//
+// Typography Preset 6 Bold
+//
+@mixin fusion-typography-preset-6-bold($important: null) {
+  @include fusion-typography-preset-6($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 7
+//
+@mixin fusion-typography-preset-7($important: null) {
+  font-family: var(--fusion-font-family-tertiary) $important;
+  font-weight: var(--fusion-font-weight-regular) $important;
+  font-size: var(--fusion-font-size-xs) $important;
+  line-height: var(--fusion-line-height-sm-2) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+}
+
+//
+// Typography Preset 7 Bold
+//
+@mixin fusion-typography-preset-7-bold($important: null) {
+  @include fusion-typography-preset-7($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 8
+//
+@mixin fusion-typography-preset-8($important: null) {
+  font-family: var(--fusion-font-family-tertiary) $important;
+  font-weight: var(--fusion-font-weight-regular) $important;
+  font-size: var(--fusion-font-size-md) $important;
+  line-height: var(--fusion-line-height-sm) $important;
+  letter-spacing: normal $important;
+  text-transform: none $important;
+}
+
+//
+// Typography Preset 8 Bold
+//
+@mixin fusion-typography-preset-8-medium($important: null) {
+  @include fusion-typography-preset-8($important);
+  font-weight: var(--fusion-font-weight-medium) $important;
+}
+
+//
+// Typography Preset 8 Bold
+//
+@mixin fusion-typography-preset-8-bold($important: null) {
+  @include fusion-typography-preset-8($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}
+
+//
+// Typography Preset 9
+//
+@mixin fusion-typography-preset-9($important: null) {
+  font-family: var(--fusion-font-family-tertiary) $important;
+  font-weight: var(--fusion-font-weight-regular) $important;
+  font-size: var(--fusion-font-size-md-2) $important;
+  line-height: var(--fusion-line-height-sm) $important;
+  letter-spacing: 1.5px $important;
+  text-transform: uppercase $important;
+}
+
+//
+// Typography Preset 9 Bold
+//
+@mixin fusion-typography-preset-9-bold($important: null) {
+  @include fusion-typography-preset-9($important);
+  font-weight: var(--fusion-font-weight-bold) $important;
+}

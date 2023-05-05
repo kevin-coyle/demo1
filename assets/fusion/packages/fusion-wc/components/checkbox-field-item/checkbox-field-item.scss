@@ -1,0 +1,151 @@
+@import 'THEME/component.scss';
+
+/* ------------------------------------*\
+    #CHECKBOX-FIELD-ITEM
+\*------------------------------------ */
+
+/**
+ * 1) Check box item
+ */
+fusion-checkbox-field-item {
+  display: contents;
+}
+
+/**
+ * Align checkbox with checkbox label
+ */
+.fusion-c-checkbox-field-item {
+  margin: var(--fusion-checkbox-field-item-margin-top, size(1.5)) 0 0 0;
+  padding: 0;
+
+  /**
+   * Remove top margin from first .fusion-c-checkbox-field-item
+   */
+  :host(:first-child) & {
+    margin-block-start: 0;
+  }
+}
+
+.fusion-c-checkbox-field-item__container {
+  display: flex;
+  position: relative;
+}
+
+/**
+* Remove top margin from checkbox field items if there is a hover
+*/
+.fusion-has-hover {
+  margin: 0;
+}
+
+/**
+ * Inline checkbox wrapping label
+ */
+.fusion-c-checkbox-field-item__label {
+  @include fusion-theme-typography-body-sm;
+
+  color: var(--fusion-checkbox-field-item-color, var(--fusion-theme-color-content-xstrong));
+  inset-block-start: 2px;
+  margin-inline-start: size(1);
+  display: flex;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+
+  /**
+   * Disable label text
+   */
+  .fusion-c-checkbox-field-item.fusion-is-disabled & {
+    color: var(--fusion-theme-color-content-disabled);
+    cursor: not-allowed;
+  }
+
+  /**
+  * Add hover styles to the checkbox label
+  */
+  .fusion-has-hover & {
+    margin: 0 0 0 calc(-1 * #{size(4)});
+    padding: size(0.75) size(1) size(0.75) size(5);
+    border-radius: var(--fusion-theme-border-radius);
+    transition: all var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+    &:hover,
+    &:focus {
+      background-color: var(--fusion-theme-color-background-subtle);
+    }
+
+    &:focus-visible {
+      @include focus;
+    }
+  }
+
+  /**
+   * Visually hide the label
+   */
+  .fusion-c-checkbox-field-item--hidden-label & {
+    @include visuallyHidden;
+  }
+}
+
+/**
+ * Checkbox item input
+ */
+.fusion-c-checkbox__input {
+  /**
+  * Add a margin to the checkbox input if has a hover
+  */
+  .fusion-has-hover & {
+    margin-block-start: size(0.75);
+    margin-inline-start: size(1);
+  }
+}
+
+/**
+ * Custom check positioned absolutely over the input
+ */
+.fusion-c-checkbox__custom-check {
+  /**
+  * Move the checkbox custom check if has a hover
+  */
+  .fusion-has-hover & {
+    inset-block-start: size(0.75);
+    inset-inline-start: size(1);
+  }
+
+  /**
+  * Show focus ring around checkbox input on keyboard focus
+  */
+  .fusion-c-checkbox__input:focus-visible + & {
+    @include focus;
+  }
+}
+
+/**
+  * Show focus ring around the checkbox and label input on keyboard focus
+*/
+.fusion-c-checkbox-field-item.fusion-has-hover {
+  .fusion-c-checkbox__input:focus-visible {
+    ~ label {
+      @include focus;
+    }
+
+    + .fusion-c-checkbox__custom-check {
+      outline: none;
+    }
+  }
+}
+
+/**
+* Add disabled styles to the checkbox item
+*/
+.fusion-is-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+@include checkbox-styles;

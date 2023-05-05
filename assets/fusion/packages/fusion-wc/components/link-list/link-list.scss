@@ -1,0 +1,111 @@
+@import 'THEME/component.scss';
+
+/*------------------------------------*\
+    #LINK-LIST
+\*------------------------------------*/
+
+/**
+ * A list of hyperlinks
+ * 1) Override preset line-height value to condense link text. Note: this should
+ *    be done sparingly to control wrapping text for specific scenarios
+ */
+.fusion-c-link-list {
+  @include fusion-theme-typography-body;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: size(-2);
+  list-style: none;
+  color: var(--fusion-theme-color-content-link-default);
+
+  /**
+  * Slotted link list item
+  */
+  ::slotted(fusion-link-list-item) {
+    margin-top: size(2);
+  }
+}
+
+/**
+ * A secondary link list
+ * 1) Uses a more subtle treatment than the default link list
+ * 2) TODO: Create a tier 2 token for secondary link colors
+ */
+.fusion-c-link-list--secondary {
+  color: var(--fusion-theme-color-content-knockout-brand);
+}
+
+/**
+ * Inverted link list
+ * 1) Link list on a dark background
+ */
+.fusion-c-link-list--inverted {
+  color: var(--fusion-theme-color-content-knockout);
+}
+
+/**
+* Display link list
+*/
+.fusion-c-link-list--display {
+  color: var(--fusion-theme-color-content-strong);
+}
+
+/**
+ * Condensed link list
+ * 1) Removes spacing between link list items
+ */
+.fusion-c-link-list--condensed {
+  margin-top: size(-1.25);
+
+  /**
+  * Slotted link list item within condensed link list
+  */
+  ::slotted(fusion-link-list-item) {
+    margin-top: size(1.25);
+  }
+}
+
+/**
+ * Small link list
+ */
+.fusion-c-link-list--sm {
+  @include fusion-theme-typography-body-sm;
+}
+
+/**
+ * Horizontal behavior
+ * 1) Displays as a horizontal list 
+ */
+.fusion-c-link-list--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: size(-1) 0 0 size(-2);
+
+  /**
+  * Slotted link list item within horizontal link list
+  */
+  ::slotted(fusion-link-list-item) {
+    margin-top: size(1);
+    margin-left: size(2);
+  }
+}
+
+/**
+ * Responsive behavior
+ * 1) Displays as a horizontal list on small screens and moves to a vertical 
+ */
+.fusion-c-link-list--responsive {
+  @media all and (max-width: $fusion-bp-md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: size(-1) 0 0 size(-2);
+
+    /**
+    * Slotted link list item within responsive link list
+    */
+    ::slotted(fusion-link-list-item) {
+      margin-top: size(1);
+      margin-left: size(2);
+    }
+  }
+}

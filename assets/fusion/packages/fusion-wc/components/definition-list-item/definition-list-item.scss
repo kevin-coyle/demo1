@@ -1,0 +1,39 @@
+@import '../../design-tokens/theme-1/component.scss';
+/*------------------------------------*\
+ #DEFINITION-LIST-ITEM
+\*------------------------------------*/
+
+/**
+ * A decription list item that will contain a term and description
+ */
+.fusion-c-definition-list__item {
+  display: flex;
+  align-items: baseline;
+  margin-top: size(2);
+
+  /**
+  * First definition list item
+  * 1) Don't add top margin to first item
+  */
+  &:first-child {
+    margin-top: 0; /* 1 */
+  }
+}
+
+/**
+* Definition list term
+* 1) The term that is being defined
+*/
+.fusion-c-definition-list__term {
+  @include fusion-theme-typography-body; /* 1 */
+  width: 4rem;
+  text-align: right;
+}
+
+/**
+ * Definition list description
+ */
+.fusion-c-definition-list__description {
+  @include fusion-theme-typography-body;
+  margin-inline-start: size(2);
+}

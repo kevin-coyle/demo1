@@ -1,0 +1,10 @@
+export declare const TAB_KEYCODE = "Tab";
+export declare const ENTER_KEYCODE = "Enter";
+export declare const L_SHIFT_KEYCODE = "ShiftLeft";
+export declare const R_SHIFT_KEYCODE = "ShiftRight";
+export declare const ESCAPE_KEYCODE = "Escape";
+export declare const SPACEBAR_KEYCODE = "Space";
+export declare const L_ARROW_KEYCODE = "ArrowLeft";
+export declare const U_ARROW_KEYCODE = "ArrowUp";
+export declare const R_ARROW_KEYCODE = "ArrowRight";
+export declare const D_ARROW_KEYCODE = "ArrowDown";

@@ -1,0 +1,30 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #SECTION
+\*------------------------------------*/
+
+/**
+ * 1) A major section of a page (<section> tag) with a title and optional description.
+ */
+.fusion-c-section {
+  margin-bottom: size(4);
+}
+
+/**
+ * Section header
+ * 1) Contains the section title and possibly a description
+ */
+.fusion-c-section-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/**
+* Section body
+*/
+.fusion-c-section__body {
+  padding-top: size(2);
+  @media all and (min-width: $fusion-bp-lg) {
+    padding-top: size(4);
+  }
+}

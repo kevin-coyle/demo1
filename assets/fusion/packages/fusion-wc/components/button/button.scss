@@ -1,0 +1,434 @@
+@import 'THEME/component.scss';
+@import '../../design-tokens/core/scss/utilities/visibility.scss';
+
+//@import theme-overrides.scss /* 2 */
+
+/* ------------------------------------ *\
+    #BUTTON
+\* ------------------------------------ */
+
+/**
+ * 1) Button or link that has functionality to it
+ */
+.fusion-c-button {
+  @include fusion-theme-typography-button;
+  display: inline-flex;
+  align-items: center;
+  padding: size(1.5) size(3);
+  margin: 0;
+  background: var(--fusion-theme-color-button-background);
+  border-width: var(--fusion-border-width-md);
+  border-style: solid;
+  border-color: var(--fusion-theme-color-button-border);
+  border-radius: var(--fusion-border-radius-xl);
+  color: var(--fusion-theme-color-button-content);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--fusion-theme-color-button-content-hover);
+    border-color: var(--fusion-theme-color-button-border-hover);
+    background: var(--fusion-theme-color-button-background-hover);
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    @include focus;
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-background-active);
+    border-color: var(--fusion-theme-color-button-border-active);
+    color: var(--fusion-theme-color-button-content-active);
+  }
+}
+
+/**
+ * 1) Button or link that has functionality to it
+ */
+.fusion-c-button--inverted {
+  background-color: var(--fusion-theme-color-button-inverted-background);
+  border-color: var(--fusion-theme-color-button-inverted-border);
+  color: var(--fusion-theme-color-button-inverted-content);
+
+  &:hover,
+  &:focus {
+    background-color: var(--fusion-theme-color-button-inverted-background-hover);
+    border-color: var(--fusion-theme-color-button-inverted-border-hover);
+    color: var(--fusion-theme-color-button-inverted-content-hover);
+    box-shadow: var(--fusion-theme-box-shadow-button);
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-inverted-background-active);
+    border-color: var(--fusion-theme-color-button-inverted-border-active);
+    color: var(--fusion-theme-color-button-inverted-content-active);
+  }
+
+  &:disabled {
+    background-color: var(--fusion-theme-color-button-inverted-background-disabled);
+    border-color: var(--fusion-theme-color-button-inverted-border-disabled);
+    color: var(--fusion-theme-color-button-inverted-content-disabled);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--fusion-theme-color-button-inverted-background-disabled);
+      border-color: var(--fusion-theme-color-button-inverted-border-disabled);
+      color: var(--fusion-theme-color-button-inverted-content-disabled);
+    }
+  }
+}
+
+/**
+ * Disabled button
+ */
+.fusion-c-button:disabled {
+  background-color: var(--fusion-theme-color-background-disabled);
+  border-color: var(--fusion-theme-color-border-disabled);
+  color: var(--fusion-theme-color-content-disabled);
+  cursor: not-allowed;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--fusion-theme-color-background-disabled);
+    border-color: var(--fusion-theme-color-border-disabled);
+    color: var(--fusion-theme-color-content-disabled);
+  }
+}
+
+/**
+ * Primary button
+ * The icon button shares the styles of the standard primary button
+ */
+.fusion-c-button--primary {
+  background-color: var(--fusion-theme-color-button-primary-background);
+  border-color: var(--fusion-theme-color-button-primary-border);
+  color: var(--fusion-theme-color-button-primary-content);
+
+  &:hover,
+  &:focus {
+    background-color: var(--fusion-theme-color-button-primary-background-hover);
+    border-color: var(--fusion-theme-color-button-primary-border-hover);
+    color: var(--fusion-theme-color-button-primary-content-hover);
+    box-shadow: var(--fusion-theme-box-shadow-button);
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-primary-background-active);
+    border-color: var(--fusion-theme-color-button-primary-border-active);
+    color: var(--fusion-theme-color-button-primary-content-active);
+  }
+
+  &:disabled {
+    background-color: var(--fusion-theme-color-button-primary-background-disabled);
+    border-color: var(--fusion-theme-color-button-primary-border-disabled);
+    color: var(--fusion-theme-color-button-primary-content-disabled);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--fusion-theme-color-button-primary-background-disabled);
+      border-color: var(--fusion-theme-color-button-primary-border-disabled);
+      color: var(--fusion-theme-color-button-primary-content-disabled);
+    }
+  }
+}
+
+/**
+ * Tertiary button
+ */
+.fusion-c-button--tertiary {
+  background-color: var(--fusion-theme-color-button-tertiary-background);
+  border-color: var(--fusion-theme-color-button-tertiary-border);
+  color: var(--fusion-theme-color-button-tertiary-content);
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    background-color: var(--fusion-theme-color-button-tertiary-background-hover);
+    border-color: var(--fusion-theme-color-button-tertiary-border-hover);
+    color: var(--fusion-theme-color-button-tertiary-content-hover);
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-tertiary-background-active);
+    border-color: var(--fusion-theme-color-button-tertiary-border-active);
+    color: var(--fusion-theme-color-button-tertiary-content-active);
+  }
+
+  &:disabled {
+    background-color: var(--fusion-theme-color-button-tertiary-background-disabled);
+    border-color: var(--fusion-theme-color-button-tertiary-border-disabled);
+    color: var(--fusion-theme-color-button-tertiary-content-disabled);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--fusion-theme-color-button-tertiary-background-disabled);
+      border-color: var(--fusion-theme-color-button-tertiary-border-disabled);
+      color: var(--fusion-theme-color-button-tertiary-content-disabled);
+    }
+  }
+}
+
+/**
+ * 1) Button or link that has functionality to it
+ */
+.fusion-c-button--tertiary.fusion-c-button--inverted {
+  background-color: var(--fusion-theme-color-button-tertiary-inverted-background);
+  border-color: var(--fusion-theme-color-button-tertiary-inverted-border);
+  color: var(--fusion-theme-color-button-tertiary-inverted-content);
+
+  &:hover,
+  &:focus {
+    background-color: var(--fusion-theme-color-button-tertiary-inverted-background-hover);
+    border-color: var(--fusion-theme-color-button-tertiary-inverted-border-hover);
+    color: var(--fusion-theme-color-button-tertiary-inverted-content-hover);
+    box-shadow: var(--fusion-theme-box-shadow-button);
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-tertiary-inverted-background-active);
+    border-color: var(--fusion-theme-color-button-tertiary-inverted-border-active);
+    color: var(--fusion-theme-color-button-tertiary-inverted-content-active);
+  }
+
+  &:disabled {
+    background-color: var(--fusion-theme-color-button-tertiary-inverted-background-disabled);
+    border-color: var(--fusion-theme-color-button-tertiary-inverted-border-disabled);
+    color: var(--fusion-theme-color-button-tertiary-inverted-content-disabled);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--fusion-theme-color-button-tertiary-inverted-background-disabled);
+      border-color: var(--fusion-theme-color-button-tertiary-inverted-border-disabled);
+      color: var(--fusion-theme-color-button-tertiary-inverted-content-disabled);
+    }
+  }
+}
+
+/**
+ * Link button
+ */
+.fusion-c-button--link {
+  @include fusion-theme-typography-body;
+  background-color: var(--fusion-theme-color-button-link-background);
+  border-color: var(--fusion-theme-color-button-link-border);
+  color: var(--fusion-theme-color-button-link-content);
+  text-decoration: underline;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    background-color: var(--fusion-theme-color-button-link-background-hover);
+    border-color: var(--fusion-theme-color-button-link-border-hover);
+    color: var(--fusion-theme-color-button-link-content-hover);
+    text-decoration: underline;
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-link-background-active);
+    border-color: var(--fusion-theme-color-button-link-border-active);
+    color: var(--fusion-theme-color-button-link-content-active);
+  }
+
+  &:disabled {
+    background-color: var(--fusion-theme-color-button-link-background-disabled);
+    border-color: var(--fusion-theme-color-button-link-border-disabled);
+    color: var(--fusion-theme-color-button-link-content-disabled);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--fusion-theme-color-button-link-background-disabled);
+      border-color: var(--fusion-theme-color-button-link-border-disabled);
+      color: var(--fusion-theme-color-button-link-content-disabled);
+    }
+  }
+}
+
+/**
+ * Link inverted button
+ */
+.fusion-c-button--link.fusion-c-button--inverted {
+  background-color: var(--fusion-theme-color-button-link-inverted-background);
+  border-color: var(--fusion-theme-color-button-link-inverted-border);
+  color: var(--fusion-theme-color-button-link-inverted-content);
+
+  &:hover,
+  &:focus {
+    background-color: var(--fusion-theme-color-button-link-inverted-background-hover);
+    border-color: var(--fusion-theme-color-button-link-inverted-border-hover);
+    color: var(--fusion-theme-color-button-link-inverted-content-hover);
+    box-shadow: var(--fusion-theme-box-shadow-button);
+  }
+
+  &:active {
+    background-color: var(--fusion-theme-color-button-link-inverted-background-active);
+    border-color: var(--fusion-theme-color-button-link-inverted-border-active);
+    color: var(--fusion-theme-color-button-link-inverted-content-active);
+  }
+
+  &:disabled {
+    background-color: var(--fusion-theme-color-button-link-inverted-background-disabled);
+    border-color: var(--fusion-theme-color-button-link-inverted-border-disabled);
+    color: var(--fusion-theme-color-button-link-inverted-content-disabled);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--fusion-theme-color-button-link-inverted-background-disabled);
+      border-color: var(--fusion-theme-color-button-link-inverted-border-disabled);
+      color: var(--fusion-theme-color-button-link-inverted-content-disabled);
+    }
+  }
+}
+
+/**
+ * Small link button
+ */
+.fusion-c-button--link.fusion-c-button--sm {
+  @include fusion-theme-typography-body-sm;
+}
+
+/**
+ * Large link button
+ */
+.fusion-c-button--link.fusion-c-button--lg {
+  @include fusion-theme-typography-body-lg;
+}
+
+/**
+ * Bare button
+ * 1) Button without a background or padding
+ */
+.fusion-c-button--bare {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--fusion-theme-color-content-default);
+
+  &:hover,
+  &:focus {
+    color: var(--fusion-theme-color-content-default-hover);
+    background: none;
+  }
+}
+
+/**
+ * Disabled bare button
+ */
+.fusion-c-button--bare:disabled {
+  color: var(--fusion-theme-color-content-disabled);
+  cursor: not-allowed;
+
+  &:hover,
+  &:focus {
+    color: var(--fusion-theme-color-content-disabled);
+  }
+}
+
+/**
+ * Full-width button 
+ */
+.fusion-c-button--full-width {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/**
+ * Small button
+ */
+.fusion-c-button--sm {
+  @include fusion-theme-typography-button-sm;
+  padding: size(1) size(2);
+
+  /**
+  * Small, bare button
+  */
+  &.fusion-c-button--bare {
+    padding: 0;
+  }
+}
+
+/**
+ * Large button
+ */
+.fusion-c-button--lg {
+  @include fusion-theme-typography-button-sm;
+
+  /**
+  * Large bare button
+  */
+  &.fusion-c-button--bare {
+    padding: 0;
+  }
+}
+
+/**
+ * Icon within button
+ */
+fusion-icon {
+  --fusion-icon-height: #{size(1.5)};
+  --fusion-icon-width: #{size(1.5)};
+  transition: all var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+  transform: var(--fusion-button-icon-transform, none);
+
+  /**
+  * Icon within small button
+  */
+  .fusion-c-button--sm & {
+    --fusion-icon-height: #{size(1)};
+    --fusion-icon-width: #{size(1)};
+  }
+
+  /**
+  * Icon within large button
+  */
+  .fusion-c-button--lg & {
+    --fusion-icon-height: #{size(1.75)};
+    --fusion-icon-width: #{size(1.75)};
+  }
+
+  /**
+  * Icon within large button
+  */
+  .fusion-c-button--bare.fusion-c-button--lg & {
+    --fusion-icon-height: #{size(2.5)};
+    --fusion-icon-width: #{size(2.5)};
+  }
+}
+
+/**
+ * Button text directly after button icon
+ */
+fusion-icon + .fusion-c-button__text {
+  margin-left: size(1);
+
+  /**
+   * Button text directly after button icon within small button
+   */
+  .fusion-c-button--sm & {
+    margin-left: size(0.5);
+  }
+}
+
+/**
+ * Button icon directly after button text
+ */
+.fusion-c-button__text:not(.fusion-u-is-vishidden) + fusion-icon {
+  margin-left: size(1);
+
+  /**
+   * Button icon directly after button text within small button
+   */
+  .fusion-c-button--sm & {
+    margin-left: size(0.5);
+  }
+}

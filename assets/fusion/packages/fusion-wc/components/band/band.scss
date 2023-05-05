@@ -1,0 +1,24 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #BAND
+\*------------------------------------*/
+
+/**
+ * 1) A container with a background that can house various recipes of components within 
+ */
+.fusion-c-band {
+  background: var(--fusion-theme-color-background-subtle);
+  padding: size(3) 0;
+
+  @media all and (min-width: $fusion-bp-xl) {
+    padding: size(4) 0;
+  }
+}
+
+/**
+ * Branded variant
+ */
+.fusion-c-band--branded {
+  color: var(--fusion-theme-color-content-knockout);
+  background: var(--fusion-theme-color-utility-information);
+}

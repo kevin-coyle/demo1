@@ -1,0 +1,391 @@
+@import 'THEME/component.scss';
+
+/* ------------------------------------*\
+    #SEARCH-FORM
+\*------------------------------------ */
+
+/**
+ * Search form
+ * 1) Inline form consisting of an form input and button used for search functionality
+ */
+.fusion-c-search-form {
+  width: 100%;
+  position: relative;
+
+  &.fusion-is-overlay {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    z-index: var(--fusion-z-index-400);
+    height: 100%;
+    background: var(--fusion-theme-color-background-default);
+  }
+}
+
+/**
+ * Label after input field is focused or the placeholder is not visible
+ */
+.fusion-c-search-form__input:focus ~ .fusion-c-search-form__label,
+.fusion-c-search-form__input:not(:placeholder-shown) ~ .fusion-c-search-form__label {
+  @include fusion-theme-typography-label-sm;
+
+  inset-block-start: size(1);
+  inset-inline-start: size(1);
+}
+
+.fusion-is-error {
+  .fusion-c-search-form__input:focus ~ .fusion-c-search-form__label {
+    color: var(--fusion-theme-color-content-utility-error);
+  }
+}
+
+.fusion-c-search-form.fusion-c-search-form--with-button:not(.fusion-is-disabled) {
+  .fusion-c-search-form__body {
+    &:hover:not(:focus, :active, :disabled) {
+      .fusion-c-search-form__submit-button[variant='primary']::part(button) {
+        background-color: var(--fusion-theme-color-button-primary-background-hover);
+        border-color: var(--fusion-theme-color-button-primary-border-hover);
+        color: var(--fusion-theme-color-button-primary-content-hover);
+      }
+
+      .fusion-c-search-form__input {
+        border-color: var(--fusion-theme-color-form-border-hover);
+      }
+    }
+  }
+}
+
+/**
+ * Search form disabled
+ */
+.fusion-is-disabled {
+  color: var(--fusion-theme-color-content-disabled);
+
+  .fusion-c-search-form__icon-after {
+    display: none;
+  }
+}
+
+/**
+ * Search form label
+ */
+.fusion-c-search-form__label {
+  @include fusion-theme-typography-body;
+  color: var(--fusion-theme-color-content-subtle);
+
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  inset-block-start: size(2);
+  inset-inline-start: size(2);
+  transition: all 0.15s ease;
+
+  .fusion-c-search-form--hidden-label & {
+    @include visuallyHidden;
+  }
+
+  .fusion-is-error & {
+    color: var(--fusion-theme-color-content-utility-error);
+  }
+}
+
+/**
+ * Hide the placeholder by default because the label
+ * acts as the native placeholder, unless the label is hidden
+ */
+.fusion-c-search-form:not(.fusion-c-search-form--hidden-label) .fusion-c-search-form__input::placeholder {
+  @include visuallyHidden;
+}
+
+/**
+ * Search form typeahead
+ * 1) The wrapper that contains the input and dropdown panel
+ */
+.fusion-c-search-form__typeahead {
+  position: relative;
+  flex-basis: 100%;
+
+  .fusion-is-overlay & {
+    position: static;
+  }
+
+  .fusion-c-search-form--with-button & {
+    width: 100%;
+  }
+}
+
+/**
+ * Search form icons
+ * 1) Icons positioned absolutely in the input
+ */
+.fusion-c-search-form__icon {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+/**
+ * Search form icons before input text
+ */
+.fusion-c-search-form__icon-before {
+  inset-inline-start: size(2.5);
+
+  --fusion-icon-height: #{size(2)};
+  --fusion-icon-width: #{size(2)};
+
+  .fusion-is-overlay & {
+    inset-inline-start: size(10.5);
+  }
+}
+
+/**
+ * Search form icons after input text
+ */
+.fusion-c-search-form__icon-after {
+  inset-inline-end: size(2.5);
+
+  /**
+   * Change the icon sizing for dense search form
+   */
+  .fusion-c-search-form--hidden-label & {
+    --fusion-icon-height: #{size(1.375)};
+    --fusion-icon-width: #{size(1.375)};
+  }
+}
+
+/**
+ * Search form clear button
+ */
+.fusion-c-search-form__clear-button {
+  cursor: pointer;
+  margin-inline-end: size(-1.125);
+
+  &:focus-visible {
+    @include focus;
+  }
+
+  .fusion-is-overlay & {
+    margin-inline-end: 0;
+  }
+}
+
+/**
+ * Search form body
+ * 1) The container for the input and button
+ */
+.fusion-c-search-form__body {
+  display: flex;
+  align-items: center;
+  transition: outline var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+  .fusion-is-overlay & {
+    background-color: var(--fusion-theme-color-background-xstrong);
+    padding: size(2);
+    position: relative;
+  }
+
+  /**
+   * Search form body within search form with button variant
+   */
+  .fusion-c-search-form--with-button & {
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    border-radius: var(--fusion-border-radius-md);
+    transition: outline var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+    @media all and (max-width: $fusion-bp-md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  /**
+   * Search form body within error state of with button variant
+   */
+  .fusion-c-search-form--with-button.fusion-is-error & {
+    background-color: var(--fusion-theme-color-background-default);
+  }
+}
+
+/**
+ * Search form input
+ */
+.fusion-c-search-form__input {
+  display: block;
+  @include input-styles;
+  width: 100%;
+
+  /**
+   * Input when focused but filled state
+   * 1) Remove bottom border to remove the white line under the input for empty states
+   */
+  &:focus:not(:placeholder-shown) {
+    border-block-end: none; /* 1 */
+  }
+
+  &:disabled {
+    font-weight: var(--fusion-font-weight-regular);
+  }
+
+  .fusion-is-overlay & {
+    &:focus:not(:disabled) {
+      box-shadow: none;
+    }
+  }
+
+  /**
+   * If is bare, make the borders transparent
+   */
+  .fusion-c-search-form--bare & {
+    border-color: transparent;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}
+
+/**
+ * Search form submit button
+ * 1) Moves the focus ring to the inside of the button to prevent overlay issues
+ */
+.fusion-c-search-form__submit-button {
+  --fusion-button-border-start-start-radius: 0;
+  --fusion-button-border-end-start-radius: 0;
+  --fusion-theme-offset-focus-ring: -2px; /* 1 */
+  --fusion-button-border-block-start-left-radius: 0;
+  --fusion-button-border-block-end-left-radius: 0;
+  --fusion-theme-button-height: 100%;
+  margin-inline-start: size(4);
+
+  .fusion-is-overlay & {
+    display: none;
+  }
+
+  @media all and (max-width: $fusion-bp-md) {
+    margin-inline-start: 0;
+    margin-block-start: size(2);
+  }
+}
+
+/**
+ * Search form dropdown
+ * 1) The dropdown panel that contains the slotted items
+ * 2) Square off the dropdown panel on top left and right
+ * 2) Make the dropdown panel border transparent
+ */
+.fusion-c-search-form__dropdown-panel {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  width: 100%;
+  z-index: var(--fusion-z-index-400);
+
+  --fusion-dropdown-panel-border-start-start-radius: 0; /* 2 */
+  --fusion-dropdown-panel-border-start-end-radius: 0; /* 2 */
+  --fusion-dropdown-panel-border-color: transparent; /* 3 */
+
+  /**
+   * When the search form is active, show the dropdown panel
+   */
+  .fusion-is-active & {
+    visibility: visible;
+    overflow: visible;
+    height: auto;
+  }
+
+  /**
+   * Search form mobile dropdown panel
+   */
+  .fusion-is-overlay & {
+    position: absolute;
+
+    width: 100%;
+    height: calc(100vh - 5rem);
+    overflow-y: auto;
+    z-index: var(--fusion-z-index-400);
+    inset-block-start: 5rem;
+    inset-inline-start: 0;
+
+    --fusion-dropdown-panel-border-color: transparent;
+    --fusion-dropdown-panel-border-start-end-radius: 0;
+    --fusion-dropdown-panel-border-end-start-radius: 0;
+    --fusion-dropdown-panel-border-end-end-radius: 0;
+
+    /**
+     * When the search form is active, show the dropdown panel
+     */
+    .fusion-is-active & {
+      visibility: visible;
+    }
+  }
+
+  /**
+   * Dropdown panel positioned to the top of the input
+   */
+  .fusion-c-search-form--top & {
+    inset-block-start: unset;
+    inset-block-end: 100%;
+  }
+
+  .fusion-c-search-form--bottom & {
+    inset-block-start: 100%;
+  }
+}
+
+/**
+ * Search form back button for mobile variant
+ */
+.fusion-c-search-form__back-button {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: var(--fusion-theme-color-background-default);
+  border-radius: 50%;
+  width: 1.75rem;
+  margin-inline-end: size(2);
+  margin-inline-start: size(1);
+  display: none;
+  align-self: center;
+}
+
+/**
+ * Empty state message
+ */
+.fusion-c-search-form__empty-message {
+  display: flex;
+  flex-direction: column;
+  padding: size(2);
+  color: var(--fusion-theme-color-content-subtle);
+
+  .fusion-is-error & {
+    color: var(--fusion-theme-color-border-utility-error);
+  }
+}
+
+.fusion-c-search-form__field-note .fusion-is-error {
+  color: var(--fusion-theme-color-content-utility-error);
+}
+
+/**
+ * Second list for accessibility (in the shadow root)
+ * 1) Visually hide this list so that it reads out properly for screen readers but
+ * doesn't show any items since the panel items do that work.
+ */
+.fusion-c-search-form__accessibility-list {
+  display: none;
+
+  .fusion-c-search-form.fusion-is-active & {
+    display: block;
+    @include visuallyHidden; /* 1 */
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"footer.d.ts","sourceRoot":"","sources":["../../../../components/footer/footer.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,aAAa,EAAE,MAAM,kBAAkB,CAAC;AAGjD;;;;GAIG;AACH,qBACa,YAAa,SAAQ,aAAa;IAC7C,MAAM,KAAK,MAAM,4BAEhB;IAED,MAAM;CAyBP;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,eAAe,EAAE,YAAY,CAAC;KAC/B;CACF"}

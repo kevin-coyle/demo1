@@ -1,0 +1,19 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #FOOTER
+\*------------------------------------*/
+
+/**
+ * 1) Container used to house various components and content for the global footer
+ */
+.fusion-c-footer {
+  @include fusion-theme-typography-body();
+  background: var(--fusion-theme-color-background-brand);
+  color: var(--fusion-theme-color-content-knockout-brand);
+  padding-top: size(5);
+  padding-bottom: size(6);
+
+  @media all and (min-width: $fusion-bp-lg) {
+    padding-top: size(6.875);
+  }
+}

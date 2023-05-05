@@ -1,0 +1,104 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/git/bin:/Users/ian/apache-maven-3.3.9/bin:/Users/ian/apache-maven-3.3.9/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.12.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/ian/Sites/vanilla-web-components/package.json: Unexpected token , in JSON at position 1035
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "vanilla-web-components",
+    "version": "0.0.0",
+    "license": "MIT",
+    "workspaces": [
+      "packages/*"
+    ],
+    "scripts": {
+      "fusion-wc:build": "yarn workspace fusion-wc build",
+      "fusion-wc:sb:start": "yarn workspace fusion-wc start",
+      "fusion-wc:sb:build": "yarn workspace fusion-wc build-storybook",
+      "fusion-wc:sb:test": "yarn workspace fusion-wc test-storybook",
+      "fusion-react:build": "yarn workspace fusion-react build",
+      "fusion-react:sb:start": "yarn workspace fusion-react start",
+      "fusion-react:sb:build": "yarn workspace fusion-react build-storybook"
+    },
+    "private": true,
+    "dependencies": {
+      "@lit-labs/react": "1.1.1",
+      "classnames": "2.3.2",
+      "core-js": "3.6.5",
+      "next": "13.0.0",
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "react-router-dom": "6.4.1",
+      "regenerator-runtime": "0.13.7",
+      "rxjs": "7.5.0",
+      "tslib": "2.3.0",
+      "web-vitals": "2.1.0",
+      "zone.js": "0.11.4"
+    },
+    "devDependencies": {
+      "@babel/preset-react": "7.14.5",,
+      "@nrwl/cypress": "15.4.2",
+      "@nrwl/eslint-plugin-nx": "15.4.2",
+      "@nrwl/jest": "15.4.2",
+      "@nrwl/linter": "15.4.2",
+      "@nrwl/next": "15.4.2",
+      "@nrwl/react": "15.4.2",
+      "@nrwl/web": "15.4.2",
+      "@nrwl/workspace": "15.4.2",
+      "@pmmmwh/react-refresh-webpack-plugin": "0.5.7",
+      "@svgr/webpack": "6.1.2",
+      "@types/node": "18.11.9",
+      "@types/react": "18.0.25",
+      "@types/react-dom": "18.0.9",
+      "@typescript-eslint/eslint-plugin": "5.36.1",
+      "@typescript-eslint/parser": "5.36.1",
+      "babel-jest": "28.1.1",
+      "cypress": "11.0.0",
+      "eslint": "8.15.0",
+      "eslint-config-next": "13.0.0",
+      "eslint-config-prettier": "8.1.0",
+      "eslint-plugin-cypress": "2.10.3",
+      "eslint-plugin-import": "2.26.0",
+      "eslint-plugin-jsx-a11y": "6.6.1",
+      "eslint-plugin-react": "7.31.11",
+      "eslint-plugin-react-hooks": "4.6.0",
+      "nx": "15.4.2",
+      "postcss": "8.4.20",
+      "prettier": "2.6.2",
+      "react-refresh": "0.10.0",
+      "react-test-renderer": "18.2.0",
+      "sass": "1.55.0",
+      "stylelint": "14.16.1",
+      "stylelint-config-prettier-scss": "0.0.1",
+      "stylelint-config-standard-scss": "6.1.0",
+      "stylelint-use-logical-spec": "4.1.0",
+      "ts-jest": "28.0.5",
+      "ts-node": "10.9.1",
+      "typescript": "4.8.2",
+      "url-loader": "4.1.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

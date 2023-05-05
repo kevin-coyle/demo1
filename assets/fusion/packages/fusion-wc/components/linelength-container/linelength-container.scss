@@ -1,0 +1,11 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #LINELENGTH-CONTAINER
+\*------------------------------------*/
+
+/**
+ * 1) Container used to cap the width of a passage of text to be readable
+ */
+.fusion-c-linelength-container {
+  max-width: var(--fusion-l-linelength-width);
+}

@@ -1,0 +1,14 @@
+@import '../../design-tokens/theme-1/component.scss';
+/*------------------------------------*\
+ #BUTTON-GROUP
+\*------------------------------------*/
+
+/** 
+ * 1) 
+ */
+.fusion-c-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: size(4);
+}

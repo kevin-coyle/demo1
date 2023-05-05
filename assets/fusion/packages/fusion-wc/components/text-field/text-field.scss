@@ -1,0 +1,61 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #TEXT-FIELD
+\*------------------------------------*/
+
+/**
+ * 1) Form field that consists of a label, text input, and field note
+ */
+
+.fusion-c-text-field__body {
+  position: relative;
+}
+
+/**
+* Text field label
+*/
+.fusion-c-text-field__label {
+  @include fusion-theme-typography-body;
+  color: var(--fusion-theme-color-content-subtle);
+
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  inset-block-start: size(2);
+  inset-inline-start: size(2);
+  transition: all 0.15s ease;
+  /**
+  * Text field label within error text field
+  */
+  .fusion-c-text-field.fusion-is-error & {
+    color: var(--fusion-theme-color-content-utility-error);
+  }
+
+  /**
+  * Text field label within success text field
+  */
+  .fusion-c-text-field.fusion-is-success & {
+    color: var(--fusion-theme-color-content-utility-success);
+  }
+}
+.fusion-c-text-field__input:focus ~ .fusion-c-text-field__label,
+.fusion-c-text-field__input:not(:placeholder-shown) ~ .fusion-c-text-field__label {
+  @include fusion-theme-typography-label-sm;
+  inset-block-start: size(1);
+  inset-inline-start: size(1);
+}
+
+/**
+* Text field input
+*/
+.fusion-c-text-field__input {
+  @include input-styles;
+  width: 100%;
+
+  /**
+  * Text field input within inverted text field
+  */
+  .fusion-c-text-field--inverted & {
+    border-color: var(--fusion-theme-color-border-subtle);
+  }
+}

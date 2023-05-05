@@ -1,0 +1,436 @@
+/*------------------------------------*\
+    #BREAKPOINT VARIABLES
+\*------------------------------------*/
+
+//
+// Breakpoints
+// 1) SCSS Variables used for media queries
+// 2) Note: presently CSS Custom Properites can't be used within
+///   media queries so SCSS variables must be used.
+//
+$fusion-bp-sm: 23.4375rem; // 375px
+$fusion-bp-sm-2: 35rem; // 560px
+$fusion-bp-md: 48rem; // 768px
+$fusion-bp-lg: 60rem; // 960px
+$fusion-bp-xl: 75rem; // 1200px
+$fusion-bp-xxl: 87.5rem; // 1600px
+
+// Global CSS custom properties that aren't part of a theme's design tokens
+:root,
+:host {
+  --size-base-unit: 0.5rem;
+}
+
+// Size
+// 1) The size function multiplies a provided value ($number)
+//    by the base sizing unit (--size-base-unit)
+// 2) $number should be limited to integers (e.g. 3) or half integers (e.g. 1.5)
+@function size($number) {
+  @return calc(var(--size-base-unit) * #{$number});
+}
+
+// Form label styles
+// TODO: Revisit
+@mixin label-styles() {
+  @include fusion-theme-typography-body-sm;
+  display: block;
+  margin-bottom: size(1);
+}
+
+// Inverted form label styles
+// TODO: Revisit
+@mixin label-inverted-styles() {
+  color: var(--fusion-theme-color-content-knockout);
+}
+
+@mixin checkbox-styles() {
+  /**
+   * Checkbox control input
+   * 1) Make control dimensions same as outer container
+   * 2) Hide native form controls
+   */
+  .fusion-c-checkbox__input {
+    display: block;
+    margin: 0;
+    z-index: 4;
+    width: size(3); /* 1 */
+    height: size(3); /* 1 */
+    cursor: pointer;
+    opacity: 0; /* 2 */
+
+    /**
+     * Disabled checkbox input
+     */
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    /**
+     * Focus visible for checkbox input
+     */
+    &:focus-visible {
+      @include focus;
+    }
+  }
+
+  /**
+   * Custom checkbox
+   * 1) Make control dimensions same as outer container
+   */
+  .fusion-c-checkbox__custom-check {
+    position: absolute;
+    top: 0; /* 1 */
+    right: 0; /* 1 */
+    bottom: 0; /* 1 */
+    left: 0; /* 1 */
+    width: size(3);
+    height: size(3);
+    flex-shrink: 0;
+    z-index: 1;
+
+    /**
+     * Custom checkbox background
+     * 1) Make control dimensions same as outer container
+     * 2) Stack background behind checkbox foreground
+     */
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; /* 1 */
+      right: 0; /* 1 */
+      bottom: 0; /* 1 */
+      left: 0; /* 1 */
+      z-index: 1; /* 2 */
+      display: block;
+      border: var(--fusion-border-width-sm) solid var(--fusion-theme-color-border-default);
+      background-color: var(--fusion-theme-color-background-default);
+      border-radius: var(--fusion-theme-border-radius);
+
+      /**
+       * Custom checkbox background inside of hovered control
+       */
+      .fusion-c-checkbox__input:hover + & {
+        border-color: var(--fusion-theme-color-border-default-hover);
+      }
+
+      /**
+       * Custom checkbox background inside of disabled control
+       */
+      .fusion-c-checkbox__input:disabled + & {
+        border-color: var(--fusion-theme-color-border-subtle);
+        background-color: var(--fusion-theme-color-background-subtle);
+        cursor: not-allowed;
+      }
+
+      /**
+       * Custom checkbox background inside of checked control
+       */
+      .fusion-c-checkbox__input:checked + & {
+        background-color: var(--fusion-theme-color-background-brand-tertiary);
+        border-color: transparent;
+      }
+
+      /**
+       * Custom checkbox background inside of checked and hovered control
+       */
+      .fusion-c-checkbox__input:checked:hover + & {
+        background-color: var(--fusion-theme-color-background-brand-tertiary);
+        border-color: transparent;
+      }
+
+      /**
+       * Custom checkbox background inside of checked control
+       */
+      .fusion-c-checkbox__input:checked:disabled + & {
+        background-color: var(--fusion-theme-color-background-brand-disabled);
+        border-color: transparent;
+      }
+    }
+
+    /**
+     * Custom checkbox checkmark
+     * 1) Position checkmark in center of box
+     * 2) Hide checkmark based by default
+     */
+    fusion-icon {
+      content: '';
+      position: absolute;
+      top: 50%; /* 1 */
+      left: 50%; /* 1 */
+      z-index: 2;
+      display: block;
+      transform: translate(-50%, -50%);
+      color: var(--fusion-theme-color-content-knockout);
+      opacity: 0; /* 2 */
+
+      /**
+       * Actual checkbox of the checked input
+       * 1) Hide checkmark based on if input is checked
+       */
+      .fusion-c-checkbox__input:checked + & {
+        opacity: 1; /* 1 */
+      }
+    }
+  }
+
+  /**
+   * Apply "indeterminate" style to checkbox. "Indeterminate" states are for
+   * checkboxes masked states of the checkbox. More here - https://css-tricks.com/indeterminate-checkboxes/
+   */
+  .fusion-is-indeterminate .fusion-c-checkbox__input:not(:checked) {
+    &:hover + .fusion-c-checkbox__custom-check::before {
+      background-color: var(--fusion-theme-color-background-brand-hover);
+      border-color: transparent;
+    }
+
+    /**
+     * Apply disabled "indeterminate" styles to checkbox
+     */
+    &:disabled + .fusion-c-checkbox__custom-check::before {
+      background-color: var(--fusion-theme-color-background-brand-disabled);
+      border-color: transparent;
+    }
+
+    /**
+     * Apply "indeterminate" styles to checkbox
+     */
+    + .fusion-c-checkbox__custom-check {
+      &::before {
+        background-color: var(--fusion-theme-color-background-brand);
+        border-color: transparent;
+      }
+
+      /**
+       * "Indeterminate" state SVG style (just a - instead of a ✓)
+       */
+      &::after {
+        opacity: 1;
+        width: 10px;
+        height: 4px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 1.52'%3E%3Cpath d='M9.24,1.52H.76A.76.76,0,0,1,.76,0H9.24a.76.76,0,0,1,0,1.52Z' fill='%233f3f3f'/%3E%3C/svg%3E");
+      }
+    }
+  }
+}
+
+@mixin input-styles() {
+  -webkit-appearance: none;
+  width: 100%;
+  border-width: var(--fusion-theme-border-width);
+  border-style: solid;
+  border-color: var(--fusion-theme-color-form-border);
+  border-radius: var(--fusion-theme-border-radius);
+  outline: none;
+  padding: size(1.875) size(1);
+  @include fusion-theme-typography-label();
+  color: var(--fusion-theme-color-content-strong);
+  background-color: var(--fusion-theme-color-form-background);
+  transition: border-color var(--fusion-anim-fade-quick) var(--fusion-anim-ease),
+    background-color var(--fusion-anim-fade-quick) var(--fusion-anim-ease), box-shadow var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+  /**
+   * Hover styles for default input elements
+   */
+  &:hover {
+    border-color: var(--fusion-theme-color-form-border-hover);
+    background-color: var(--fusion-theme-color-background-subtle);
+  }
+
+  /**
+   * Focus & active styles for default input elements
+   */
+  &:focus:not(:disabled) {
+    outline: 1px solid var(--fusion-theme-color-focus-ring);
+    outline-offset: -2px;
+    border-color: var(--fusion-theme-color-form-border-focus);
+    padding: size(2.75) size(1) size(1) size(1);
+  }
+
+  /**
+   * When a value is entered into the input and the input is focused
+   */
+  &:not(:placeholder-shown):not(:disabled) {
+    outline: none;
+    box-shadow: inset 0px -2px 0px 0px var(--fusion-theme-color-border-strong);
+    border-color: transparent;
+    padding: size(2.75) size(1) size(1) size(1);
+
+    .fusion-is-error & {
+      background-color: var(--fusion-theme-color-background-utility-error);
+      box-shadow: inset 0px -2px 0px 0px var(--fusion-theme-color-border-utility-error);
+    }
+  }
+
+  /**
+   * When the input is clicked on
+   */
+  &:active:not(:disabled) {
+    border-color: var(--fusion-theme-color-form-border);
+    background-color: var(--fusion-theme-color-form-background-hover);
+  }
+
+  /**
+   * Disabled styles for default input elements
+   */
+  &:disabled {
+    background-color: var(--fusion-theme-color-background-subtle);
+    border-color: var(--fusion-theme-color-border-disabled);
+    color: var(--fusion-theme-color-content-disabled);
+    cursor: not-allowed;
+
+    /**
+     * Disabled text colors
+     */
+    ~ .fusion-c-text-field__label,
+    &:hover ~ .fusion-c-text-field__label,
+    &::placeholder {
+      color: var(--fusion-theme-color-content-disabled);
+    }
+  }
+
+  /**
+   * Focus visible for input fields
+   */
+  &:focus-visible {
+    @include focus;
+  }
+
+  /**
+   * Placeholder styles for input fields
+   */
+  &::placeholder {
+    @include fusion-theme-typography-body-sm();
+    color: var(--fusion-theme-color-content-default);
+    transition: color var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+    .fusion-is-error & {
+      color: var(--fusion-theme-color-content-utility-error);
+    }
+  }
+
+  &:hover::placeholder {
+    .fusion-is-error & {
+      color: var(--fusion-theme-color-content-utility-error-hover);
+    }
+  }
+
+  /**
+   * Error textarea field
+   */
+  .fusion-is-error & {
+    border-color: var(--fusion-theme-color-border-utility-error);
+    background-color: var(--fusion-theme-color-background-utility-error);
+
+    &:hover,
+    &:focus {
+      background-color: var(--fusion-theme-color-background-utility-error);
+    }
+  }
+
+  /**
+   * Successful textarea field
+   */
+  .fusion-is-success & {
+    border-color: var(--fusion-theme-color-border-utility-success);
+    background-color: var(--fusion-theme-color-background-utility-success);
+  }
+}
+
+//------------------------------------//
+//   #TEXT LINK STYLES
+//------------------------------------//
+
+// Text Link Styles
+@mixin text-link() {
+  @include fusion-theme-typography-label;
+  color: var(--fusion-theme-color-content-link-default);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--fusion-theme-color-content-link-hover);
+    background-color: transparent;
+  }
+
+  &:active {
+    color: var(--fusion-theme-color-content-link-active);
+  }
+
+  &:visited {
+    color: var(--fusion-theme-color-content-link-visited);
+  }
+
+  &:focus-visible {
+    @include focus;
+  }
+}
+
+@mixin text-link-inverted() {
+  @include fusion-theme-typography-label;
+  color: var(--fusion-theme-color-content-link-default);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--fusion-theme-color-content-link-default-hover);
+    background-color: transparent;
+  }
+
+  &:focus-visible {
+    @include focusInverted;
+  }
+}
+
+@mixin text-link-brand() {
+  @include fusion-theme-typography-label;
+  color: var(--fusion-theme-color-content-knockout-brand);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--fusion-theme-color-content-knockout-brand-hover);
+    background-color: transparent;
+  }
+
+  &:focus-visible {
+    @include focusInverted;
+  }
+}
+
+//------------------------------------//
+//   #FOCUS
+//------------------------------------//
+
+/**
+ * Visible focus outline for elements on a light background
+ */
+@mixin focus() {
+  outline: 2px solid var(--fusion-theme-color-focus-ring);
+  outline-offset: var(--fusion-theme-offset-focus-ring, 0);
+}
+
+/**
+ * Visible focus outline for elements on a dark background
+ */
+@mixin focusInverted() {
+  outline: 2px solid var(--fusion-theme-color-focus-ring-inverted);
+}
+
+/**
+ * Invisible focus outline for elements that need a more visible
+ * focus state for high-contrast mode
+ */
+@mixin focusTransparent() {
+  outline: 2px solid transparent;
+}
+
+/**
+ * Visually hidden from display
+ */
+@mixin visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

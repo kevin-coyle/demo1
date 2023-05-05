@@ -1,0 +1,80 @@
+@import 'THEME/component.scss';
+
+/* ------------------------------------*\
+ #DROPDOWN-PANEL
+\*------------------------------------ */
+
+/**
+ * 1) Dropdown panel
+ */
+.fusion-c-dropdown-panel {
+  background-color: var(--fusion-theme-color-background-default);
+  box-shadow: var(--fusion-panel-box-shadow, var(--fusion-theme-box-shadow-lg));
+  border-start-start-radius: var(--fusion-dropdown-panel-border-block-start-left-radius, var(--fusion-border-radius-lg));
+  border-start-end-radius: var(--fusion-dropdown-panel-border-block-start-right-radius, var(--fusion-border-radius-lg));
+  border-end-end-radius: var(--fusion-dropdown-panel-border-block-end-right-radius, var(--fusion-border-radius-lg));
+  border-end-start-radius: var(--fusion-dropdown-panel-border-block-end-left-radius, var(--fusion-border-radius-lg));
+  height: auto;
+  z-index: var(--fusion-z-index-400);
+}
+
+/**
+ * Give padding and border styling to panel body
+ */
+.fusion-c-dropdown-panel__body {
+  padding: size(0.5) 0;
+  border-start-start-radius: var(--fusion-dropdown-panel-border-block-start-left-radius, var(--fusion-border-radius-lg));
+  border-start-end-radius: var(--fusion-dropdown-panel-border-block-start-right-radius, var(--fusion-border-radius-lg));
+  border-end-end-radius: var(--fusion-dropdown-panel-border-block-end-right-radius, var(--fusion-border-radius-lg));
+  border-end-start-radius: var(--fusion-dropdown-panel-border-block-end-left-radius, var(--fusion-border-radius-lg));
+  border: var(--fusion-theme-border-width) solid var(--fusion-dropdown-panel-border-color, var(--fusion-theme-color-border-default));
+
+  /**
+  * Dropdown panel body within bare variant
+  * 1) "Remove" the border without adjusting the width in case this needs to have the
+  * same size as default bordered version
+  */
+  .fusion-c-dropdown-panel--bare & {
+    border-color: transparent; /* 1 */
+  }
+
+  /**
+  * Change border radius on body container if header is present
+  */
+  .fusion-has-header & {
+    border-radius: 0 0 var(--fusion-border-radius-lg) var(--fusion-border-radius-lg);
+  }
+
+  /**
+  * Change border radius on body container if footer is present
+  */
+  .fusion-has-footer & {
+    border-radius: var(--fusion-border-radius-lg) var(--fusion-border-radius-lg) 0 0;
+  }
+
+  /**
+  * Adds a max height and scrolling of the panel
+  */
+  .fusion-has-scroll & {
+    overflow: auto;
+    max-height: size(20);
+  }
+}
+
+/**
+ * Optional dropdown panel header
+ */
+.fusion-c-dropdown-panel__header {
+  padding: size(1);
+  border: var(--fusion-theme-border-width) solid var(--fusion-dropdown-panel-border-color, var(--fusion-theme-color-border-default));
+  border-radius: var(--fusion-border-radius-lg) var(--fusion-border-radius-lg) 0 0;
+  margin-block-end: -1px;
+}
+
+/**
+ * Dropdown panel footer
+ * 1) Add padding to footer
+ */
+.fusion-c-dropdown-panel__footer {
+  padding: size(1);
+}

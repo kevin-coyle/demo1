@@ -1,0 +1,56 @@
+@import 'THEME/component.scss';
+
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+
+/**
+  * 1) Global header where the navigation, logo, and other content lives across the entire site
+  */
+.fusion-c-header {
+  background: var(--fusion-theme-color-background-default);
+  color: var(--fusion-theme-color-content-default);
+  box-shadow: var(--fusion-header-box-shadow);
+  position: relative;
+  z-index: 3;
+}
+
+/**
+ * Header top section
+ * 1) Optional slot used for global navigation usually
+ */
+.fusion-c-header__top {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+/**
+ * Inner container of the header top section
+ * 1) Used to cap the width of the content within the header
+ */
+.fusion-c-header__top-inner {
+  width: 100%;
+}
+
+/**
+ * Header middle section
+ * 1) Section of the site used for the logo and primary navigation
+ */
+.fusion-c-header__middle {
+  position: relative;
+  width: 100%;
+}
+
+/**
+ * Inner container of the header middle section
+ * 1) Used to cap the width of the content within the header
+ */
+.fusion-c-header__middle-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: size(2);
+  padding-bottom: size(2);
+}

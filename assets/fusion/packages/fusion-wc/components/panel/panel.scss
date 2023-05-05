@@ -1,0 +1,38 @@
+@import '../../design-tokens/theme-1/component.scss';
+/*------------------------------------*\
+ #PANEL
+\*------------------------------------*/
+
+/** 
+ * 1) 
+ */
+.fusion-c-panel {
+  padding: var(--fusion-panel-padding, #{size(3)} #{size(7)});
+  background: var(--fusion-theme-color-background-default);
+  box-shadow: var(--fusion-theme-box-shadow-md);
+
+  @media all and (min-width: $fusion-bp-md) {
+    padding: var(--fusion-panel-padding, size(6) size(11.75));
+  }
+}
+
+.fusion-c-panel--condensed {
+  padding: size(3) size(7);
+
+  @media all and (min-width: $fusion-bp-md) {
+    padding: size(3) size(7);
+  }
+}
+
+.fusion-c-panel--remove-sm {
+  @media all and (max-width: $fusion-bp-md) {
+    box-shadow: none;
+    padding: 0;
+    background: none;
+  }
+}
+
+.fusion-c-panel--dotted {
+  box-shadow: none;
+  border: 1px dashed var(--fusion-theme-color-border-strong);
+}

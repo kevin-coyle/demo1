@@ -1,0 +1,38 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #BADGE
+\*------------------------------------*/
+
+/**
+ * 1) Badges are DS of color with text inside used for messaging
+ */
+.fusion-c-badge {
+  @include fusion-theme-typography-button;
+  background: var(--fusion-theme-color-primary);
+  color: var(--fusion-theme-color-inverted);
+  display: inline-flex;
+  border-radius: var(--fusion-theme-border-radius);
+  padding: size(1);
+}
+
+/**
+ * Success badge
+ */
+.fusion-c-badge--success {
+  background: var(--fusion-theme-color-background-success);
+}
+
+/**
+ * Warning badge
+ */
+.fusion-c-badge--warning {
+  background: var(--fusion-theme-color-background-warning);
+  color: var(--fusion-theme-color-content-default);
+}
+
+/**
+ * Error badge
+ */
+.fusion-c-badge--error {
+  background: var(--fusion-theme-color-background-error);
+}

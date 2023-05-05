@@ -1,0 +1,203 @@
+@import 'THEME/component.scss';
+
+/* ------------------------------------*\
+ #TOGGLE
+\*------------------------------------ */
+
+/**
+ * Toggle variables which allow an application to change the width and height of the toggle if needed
+ */
+:host {
+  --fusion-toggle-width: 58px;
+  --fusion-toggle-height: 24px;
+}
+
+/**
+ * Toggle
+ * 1) On/Off toggle switch
+ */
+.fusion-c-toggle {
+  position: relative;
+}
+
+/**
+ * Toggle label
+ * 1) The label element that is styled in a pill shape
+ */
+.fusion-c-toggle__label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  white-space: nowrap;
+  @include fusion-theme-typography-body-sm;
+}
+
+/**
+ * Toggle label content
+ * 1) style for The label property content, which is used for accessibility and not for display
+ */
+.fusion-c-toggle__label-content {
+  width: 0;
+  opacity: 0;
+}
+
+/**
+ * Toggle label after
+ * 1) The inner pill that slides based on the checked state
+ */
+.fusion-c-toggle__background {
+  content: '';
+  position: relative;
+  width: var(--fusion-toggle-width);
+  height: var(--fusion-toggle-height);
+  border-radius: var(--fusion-toggle-height);
+  background-color: var(--fusion-theme-color-background-strong);
+
+  /**
+   * If disabled, changes the background color of the pill shape
+   */
+  .fusion-is-disabled & {
+    background-color: var(--fusion-theme-color-background-subtle);
+  }
+}
+
+/**
+ * Toggle checkbox is checked label
+ * 1) If the checkbox is checked, then change the background color of the label
+ */
+.fusion-c-toggle__checkbox:checked + .fusion-c-toggle__label .fusion-c-toggle__background {
+  background-color: var(--fusion-theme-color-background-brand-tertiary);
+
+  /**
+   * If disabled, changes the pill shape background color if checked
+   */
+  .fusion-is-disabled & {
+    background-color: var(--fusion-theme-color-background-subtle);
+  }
+}
+
+/**
+ * Toggle label after
+ * 1) The inner pill that slides based on the checked state
+ */
+.fusion-c-toggle__background:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: calc(50% - #{size(0.5)});
+  height: calc(100% - #{size(0.5)});
+  border-radius: var(--fusion-toggle-height);
+  background-color: var(--fusion-theme-color-background-default);
+  inset-block-start: size(0.25);
+  inset-inline-start: size(0.25);
+  transition: all var(--fusion-anim-move-quick) var(--fusion-anim-ease);
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+}
+
+/**
+ * Toggle label text
+ */
+.fusion-c-toggle__label-text {
+  margin-right: size(1);
+}
+
+/**
+ * Toggle on/off
+ * 1) The wrappers for the on/off slots
+ */
+.fusion-c-toggle__on,
+.fusion-c-toggle__off {
+  padding: size(0.5) size(1);
+  min-width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+ * Toggle on/off slots
+ * 1) The slots for the on/off elements
+ */
+.fusion-c-toggle__on slot,
+.fusion-c-toggle__off slot {
+  --fusion-icon-width: 13px;
+  --fusion-icon-height: 13px;
+
+  display: block;
+  color: var(--fusion-theme-color-content-knockout);
+
+  /**
+   * If disabled, changes the color of the slotted content
+   */
+  .fusion-is-disabled &,
+  .fusion-is-checked.fusion-is-disabled & {
+    color: var(--fusion-theme-color-content-disabled);
+  }
+}
+
+/**
+ * Toggle checkbox
+ * 1) The checkbox element that is visually hidden, but styled for focus-visible
+ */
+.fusion-c-toggle__checkbox {
+  display: block;
+  width: var(--fusion-toggle-width);
+  height: var(--fusion-toggle-height);
+  border-radius: var(--fusion-toggle-height);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+
+  /**
+   * The focus visible state when a user tabs to the toggle
+   */
+  &:focus,
+  &:focus-visible {
+    outline: 1px solid var(--fusion-theme-color-background-xstrong);
+    outline-offset: 1px;
+  }
+}
+
+/**
+ * Toggle checkbox is checked label after
+ * 1) If the checkbox is checked, then shift over the inner pill
+ */
+.fusion-c-toggle__checkbox:checked + .fusion-c-toggle__label .fusion-c-toggle__background:after {
+  inset-inline-start: calc(50% + #{size(0.25)});
+}
+
+/**
+ * Toggle wrapper
+ * 1) The wrapper around the toggle and asterisk to flex align the content
+ */
+.fusion-c-toggle-wrapper {
+  display: flex;
+}
+
+/**
+ * Toggle disabled
+ * 1) Prevent clicks if the toggle is disabled
+ */
+.fusion-is-disabled {
+  pointer-events: none;
+  cursor: disabled;
+}
+
+/**
+ * Toggle asterisk
+ * 1) The asterisk that appears if the toggle is required
+ */
+.fusion-c-toggle__asterisk {
+  color: var(--fusion-theme-color-border-utility-error);
+  margin-inline-start: size(0.5);
+  display: inline-block;
+}

@@ -1,0 +1,49 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #FIELD-NOTE
+\*------------------------------------*/
+
+/**
+ * 1) Set typography presets to tier 2 values
+ */
+@mixin fusion-field-note-typography {
+  @include fusion-theme-typography-body-sm;
+}
+
+/**
+ * 1) Messaging associated with the form field usually located below the form field input
+ */
+.fusion-c-field-note {
+  @include fusion-field-note-typography;
+  display: flex;
+  color: var(--fusion-theme-color-content-subtle);
+  margin-top: size(1);
+}
+
+/**
+ * Field note with an error
+ */
+.fusion-c-field-note.fusion-is-error {
+  color: var(--fusion-theme-color-content-utility-error);
+}
+
+/**
+ * Field note with a success state
+ */
+.fusion-c-field-note.fusion-is-success {
+  color: var(--fusion-theme-color-content-utility-success);
+}
+
+/**
+ * Inverted field note
+ */
+.fusion-c-field-note--inverted {
+  color: var(--fusion-theme-color-content-knockout);
+}
+
+/**
+ * Field note icon
+ */
+fusion-icon {
+  margin-right: size(0.5);
+}

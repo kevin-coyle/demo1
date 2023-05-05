@@ -1,0 +1,211 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #TEXT-PASSAGE
+\*------------------------------------*/
+
+/**
+ * 1) A passage of text  (e.g. article, blog post), including uncontrolled elements
+ *    (e.g. unclassed h2, h3, ul, li, and so on). 
+ * 2) Use this file only for styling text passage and elements inside of text passage.
+ */
+fusion-text-passage {
+  @include fusion-theme-typography-body();
+
+  /**
+  * Generic h1 within text passage
+  */
+  h1 {
+    @include fusion-theme-typography-display-xl();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h2 within text passage
+  */
+  h2 {
+    @include fusion-theme-typography-display-lg();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h3 within text passage
+  */
+  h3 {
+    @include fusion-theme-typography-display();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h4 within text passage
+  */
+  h4 {
+    @include fusion-theme-typography-display-sm();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h5 within text passage
+  */
+  h5 {
+    @include fusion-theme-typography-headline-lg();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h6 within text passage
+  */
+  h6 {
+    @include fusion-theme-typography-headline();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic unordered and ordered lists within text passage
+  */
+  ul,
+  ol {
+    margin-top: 0;
+  }
+
+  /**
+  * Unordered list within text passage
+  */
+  ul {
+    margin-left: size(2.5);
+    padding-left: 0;
+  }
+
+  /**
+  * Ordered list within text passage
+  */
+  ol {
+    margin-left: size(2.25);
+    padding-left: 0;
+  }
+
+  /**
+  * Generic link tag within text passage
+  */
+  a {
+    color: var(--fusion-theme-color-link-default);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      color: var(--fusion-theme-color-link-hover);
+    }
+  }
+
+  /**
+  * Paragraph tag within text passage
+  */
+  p {
+    margin-top: 0;
+    margin-bottom: size(3);
+  }
+
+  /**
+  * Blockquote within text passage
+  */
+  blockquote {
+    font-style: italic;
+    border-left: var(--fusion-border-width-sm) solid var(--fusion-theme-color-border-subtle);
+    color: var(--fusion-theme-color-content-subtle);
+    padding-left: size(2);
+    margin-left: 0;
+    margin-bottom: size(2);
+  }
+
+  /**
+* Last item declared in the text passage
+* 1) Remove default margin bottom from the item
+*/
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+* Small text passage
+*/
+fusion-text-passage[size='lg'] {
+  @include fusion-theme-typography-body-lg();
+}
+
+/**
+* Small text passage
+*/
+fusion-text-passage[size='sm'] {
+  @include fusion-theme-typography-body-sm();
+
+  /**
+  * Unordered list within small text passage
+  */
+  ul {
+    margin-left: size(2.25);
+    padding-left: 0;
+  }
+
+  /**
+  * Ordered list within small text passage
+  */
+  ol {
+    margin-left: size(2);
+    padding-left: 0;
+  }
+
+  /**
+  * Paragraph within small text passage
+  */
+  p {
+    margin-bottom: size(2);
+  }
+
+  /**
+  * Generic h1 within text passage
+  */
+  h1 {
+    @include fusion-theme-typography-display-lg();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h2 within text passage
+  */
+  h2 {
+    @include fusion-theme-typography-display();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h3 within text passage
+  */
+  h3 {
+    @include fusion-theme-typography-display-sm();
+    margin-bottom: size(1.5);
+  }
+
+  /**
+  * Generic h4 within text passage
+  */
+  h4 {
+    @include fusion-theme-typography-headline-lg();
+    margin-bottom: size(1.5);
+  }
+}
+
+/**
+* Inverted text passage
+*/
+fusion-text-passage[inverted] {
+  color: var(--fusion-theme-color-content-knockout);
+
+  /**
+  * Blockquote within inverted text passage
+  */
+  blockquote {
+    border-left-color: var(--fusion-theme-color-border-knockout);
+    color: var(--fusion-theme-color-content-knockout);
+  }
+}

@@ -1,0 +1,39 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #NAV-CONTAINER
+\*------------------------------------*/
+
+/**
+ * 1) Wrapper around contents that get placed into a toggleable 
+ * menu on smaller screens (usually primary nav and maybe other contents)
+ */
+:host {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 100vh;
+  background: var(--fusion-theme-color-background-default);
+  overflow: auto;
+
+  @media all and (min-width: $fusion-bp-lg) {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    overflow: initial;
+  }
+}
+
+/**
+ * Actual nav container component
+ */
+.fusion-c-nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media all and (min-width: $fusion-bp-lg) {
+    flex-direction: row;
+  }
+}

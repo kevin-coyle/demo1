@@ -1,0 +1,14 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #ICON
+\*------------------------------------*/
+
+/**
+ * 1) Graphic used to supplement text or represent functionality
+ */
+.fusion-c-icon {
+  display: block;
+  fill: var(--fusion-icon-fill, currentColor);
+  height: var(--fusion-icon-height, size(2));
+  width: var(--fusion-icon-width, size(2));
+}

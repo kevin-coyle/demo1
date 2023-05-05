@@ -1,0 +1,59 @@
+@import 'THEME/component.scss';
+@import '../../design-tokens/core/scss/utilities/visibility.scss';
+/*------------------------------------*\
+    #UTILITY-NAV-ITEM
+\*------------------------------------*/
+
+/**
+ * 1) List item that contains a link/button within the utility nav
+ */
+.fusion-c-utility-nav__item {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+* Utility nav link
+*/
+.fusion-c-utility-nav__link {
+  display: flex;
+  @include fusion-theme-typography-body;
+  border: none;
+  background: none;
+  appearance: none;
+  padding: 0;
+  text-align: left;
+  color: var(--fusion-theme-color-content-default);
+  cursor: pointer;
+  transition: color var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+  &:hover,
+  &:focus {
+    color: var(--fusion-theme-color-content-default-hover);
+  }
+}
+
+/**
+* Utility nav icon
+* 1) Pass properties down to icon component
+*/
+fusion-icon {
+  --fusion-icon-height: #{size(2.5)}; /* 1 */
+  --fusion-icon-width: #{size(2.5)}; /* 1 */
+}
+
+/**
+* Utility nav icon directly after utility nav text
+* 1) Create space between text and icon
+*/
+.fusion-c-utility-nav__text + fusion-icon {
+  margin-left: size(1); /* 1 */
+}
+
+/**
+* Utility nav text directly after utility nav icon
+* 1) Create space between text and icon
+*/
+fusion-icon + .fusion-c-utility-nav__text {
+  margin-left: size(1); /* 1 */
+}

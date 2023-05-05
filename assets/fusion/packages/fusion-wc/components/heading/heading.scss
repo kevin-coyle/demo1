@@ -1,0 +1,82 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #HEADING
+\*------------------------------------*/
+
+/**
+ * Heading component
+ */
+.fusion-c-heading {
+  margin: 0;
+}
+
+.fusion-c-heading--align-center {
+  text-align: center;
+}
+
+.fusion-c-heading--decorator {
+  &:after {
+    content: '';
+    margin-block-start: size(2);
+    display: block;
+    width: size(8);
+    height: size(0.5);
+    background: var(--fusion-theme-color-background-brand-secondary);
+  }
+}
+
+.fusion-c-heading--align-center.fusion-c-heading--decorator {
+  &:after {
+    text-align: center;
+    margin-block-start: size(2);
+    margin-inline-end: auto;
+    margin-block-end: 0;
+    margin-inline-start: auto;
+  }
+}
+
+/**
+ * Heading with theme heading 1 preset applied
+ */
+.fusion-c-heading--display-xl {
+  @include fusion-theme-typography-display-xl();
+}
+
+/**
+ * Heading with theme heading 2 preset applied
+ */
+.fusion-c-heading--display-lg {
+  @include fusion-theme-typography-display-lg();
+}
+
+/**
+ * Heading with theme heading 3 preset applied
+ */
+.fusion-c-heading-display {
+  @include fusion-theme-typography-display();
+}
+
+/**
+ * Heading with theme heading 4 preset applied
+ */
+.fusion-c-heading--display-sm {
+  @include fusion-theme-typography-display-sm();
+}
+
+/**
+ * Heading with theme heading 5 preset applied
+ */
+.fusion-c-heading--headline-lg {
+  @include fusion-theme-typography-headline-lg();
+}
+
+/**
+ * Heading with theme heading heading preset applied
+ */
+.fusion-c-heading--headline {
+  @include fusion-theme-typography-headline();
+}
+
+.fusion-c-heading--knockout {
+  color: var(--fusion-theme-color-content-knockout);
+}

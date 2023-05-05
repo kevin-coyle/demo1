@@ -1,0 +1,1 @@
+{"version":3,"file":"definition-list-item.d.ts","sourceRoot":"","sources":["../../../../components/definition-list-item/definition-list-item.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,aAAa,EAAE,MAAM,kBAAkB,CAAC;AAGjD;;GAEG;AAEH,qBACa,wBAAyB,SAAQ,aAAa;IACzD,MAAM,KAAK,MAAM,4BAEhB;IACD,MAAM;CAUP;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,6BAA6B,EAAE,wBAAwB,CAAC;KACzD;CACF"}

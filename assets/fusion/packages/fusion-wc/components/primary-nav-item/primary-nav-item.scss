@@ -1,0 +1,156 @@
+@import 'THEME/component.scss';
+
+/*------------------------------------*\
+    #PRIMARY NAV ITEM
+\*------------------------------------*/
+
+/**
+ * Actual primary nav list item
+ */
+.fusion-c-primary-nav__item {
+  border-bottom-width: var(--fusion-border-width-sm);
+  border-bottom-style: solid;
+  border-bottom-color: var(--fusion-theme-color-border-subtle);
+
+  @media all and (min-width: $fusion-bp-md) {
+    border-bottom: none;
+  }
+}
+
+/**
+ * Primary navigation link
+ * 1) Used to remove any sort of default button styles when a button tag is rendered
+ */
+.fusion-c-primary-nav__link {
+  @include fusion-theme-typography-body-medium;
+  position: relative;
+  display: flex;
+  align-items: center;
+  appearance: none; /* 1 */
+  background: none; /* 1 */
+  border: none; /* 1 */
+  white-space: nowrap;
+  width: 100%;
+  margin: 0;
+  padding: size(2) size(4);
+  color: var(--fusion-theme-color-content-default);
+  text-decoration: none;
+  transition: all var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    height: 4px;
+    width: 0;
+    background: var(--fusion-theme-color-background-brand-secondary);
+    transition: all var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: transparent;
+    color: var(--fusion-theme-color-content-default);
+
+    &:after {
+      left: calc(50% - 1rem);
+      width: 2rem;
+    }
+  }
+
+  /**
+  * Primary navigation link within active primary nav item
+  */
+  .fusion-c-primary-nav__item.fusion-is-active & {
+    background: transparent;
+    color: var(--fusion-theme-color-content-default);
+  }
+
+  @media all and (min-width: $fusion-bp-lg) {
+    padding: 0 size(2);
+    border-bottom: none;
+  }
+}
+
+/**
+ * Icon within primary navigation item
+ * 1) TODO: Figure out how to pass down size(1.5) instead of static rem value
+ */
+fusion-icon {
+  --fusion-icon-height: #{size(1)}; /* 1 */
+  --fusion-icon-width: #{size(1)}; /* 1 */
+  margin-left: auto;
+  transition: transform var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+
+  /**
+  * Icon within active primary nav item
+  * 1) Rotate the icon to show that the dropdown is open
+  */
+  .fusion-c-primary-nav__item.fusion-is-active & {
+    transform: rotate(-180deg); /* 1 */
+  }
+
+  @media all and (min-width: $fusion-bp-md) {
+    margin-left: size(1);
+  }
+}
+
+/**
+ * Primary nav item panel
+ * 1) Panel for the dropdown content
+ * 1) Hide when not active
+ */
+.fusion-c-primary-nav__item-panel {
+  //display: none;
+  visibility: hidden; /* 1 */
+  width: 100%;
+  height: 0; /* 1 */
+  overflow: hidden; /* 1 */
+  background: transparent;
+  opacity: 0; /* 1 */
+  transition: all 0s var(--fusion-anim-ease);
+  z-index: -1;
+
+  @media all and (min-width: $fusion-bp-md) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: auto;
+    box-shadow: var(--fusion-theme-box-shadow-md);
+  }
+
+  /**
+  * Primary nav item panel within active item
+  * 1) Show the primary nav item dropdown
+  */
+  .fusion-c-primary-nav__item.fusion-is-active & {
+    display: block;
+    visibility: visible; /* 1 */
+    height: auto; /* 1 */
+    padding-top: size(4);
+    padding-bottom: size(4);
+    background: var(--fusion-theme-color-background-default);
+    opacity: 1; /* 1 */
+    z-index: 1;
+    transition: opacity var(--fusion-anim-fade-quick) var(--fusion-anim-ease);
+  }
+}
+
+/**
+* Primary nav item panel inner container
+* 1) Container within primary nav item panel that caps the content width and aligns
+*/
+.fusion-c-primary-nav__item-panel-inner {
+  /**
+  * Primary nav item inner container within megamenu item
+  * 1) Cap the content width and center
+  */
+  .fusion-c-primary-nav__item--megamenu & {
+    max-width: 70rem; /* 1 */
+    padding-right: size(4);
+    padding-left: size(4);
+    margin: 0 auto; /* 1 */
+  }
+}

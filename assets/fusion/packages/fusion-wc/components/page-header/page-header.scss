@@ -1,0 +1,39 @@
+@import 'THEME/component.scss';
+
+/*------------------------------------*\
+    #PAGE-HEADER
+\*------------------------------------*/
+
+/**
+ * 1) Headline of a page with an h1 heading and optional description
+ */
+.fusion-c-page-header {
+  margin-bottom: size(4);
+}
+
+/**
+ * Page header title
+ */
+.fusion-c-page-header__title {
+  display: inline;
+  margin: 0;
+  @include fusion-theme-typography-display-xl();
+}
+
+/**
+ * Page header title after
+ * 1) Container placed after page header title if something like a badge needs to be placed there
+ */
+.fusion-c-page-header__title-after {
+  display: inline-block;
+  position: relative;
+  bottom: size(1.25);
+  margin-left: size(2);
+}
+
+/**
+ * Page header description
+ */
+.fusion-c-page-header__description {
+  @include fusion-theme-typography-body;
+}

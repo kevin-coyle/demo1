@@ -1,0 +1,93 @@
+@import 'THEME/component.scss';
+
+/*------------------------------------*\
+    #CARD
+\*------------------------------------*/
+
+/**
+ * 1) A card is an organized block that typically contains a title, image,
+ * text, and/or calls to action. It is made up of an optional header slot, required
+ * body slot, and optional footer slot to place other components and content within.
+ */
+.fusion-c-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border-width: var(--fusion-border-width-sm);
+  border-style: solid;
+  border-color: var(--fusion-theme-color-border-subtle);
+  border-radius: var(--fusion-theme-border-radius);
+  box-shadow: var(--fusion-theme-box-shadow-md);
+  background: var(--fusion-theme-color-background-default);
+}
+
+/**
+ * Bare card
+ * 1) Organized block without a border, background, or padding
+ */
+.fusion-c-card--bare {
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+/**
+ * Center aligned card
+ * 1) Center content and text within the card
+ */
+.fusion-c-card--align-center {
+  text-align: center; /* 1 */
+  align-items: center; /* 1 */
+  justify-content: center; /* 1 */
+}
+
+/**
+ * Slotted image within a card
+ * 1) Make the image full width
+ */
+::slotted(img) {
+  width: 100%;
+}
+
+/**
+ * Card header
+ * 1) Remove flex so that body always takes up remaining space
+ */
+.fusion-c-card__header {
+  display: block;
+  flex: none; /* 1 */
+}
+
+/**
+ * Card body
+ * 1) Flex applied to always fill the remaining space of the card
+ */
+.fusion-c-card__body {
+  display: block;
+  padding: 1rem;
+  flex: 1 0 auto; /* 1 */
+
+  /**
+  * Card body within bare card
+  * 1) Remove padding
+  */
+  .fusion-c-card--bare & {
+    padding: 0;
+  }
+}
+
+/**
+ * Card footer
+ * 1) Remove flex so that body always takes up remaining space
+ */
+.fusion-c-card__footer {
+  display: block;
+  flex: none; /* 1 */
+  padding: 1rem;
+
+  .fusion-c-card--bare & {
+    padding: 0;
+  }
+}

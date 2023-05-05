@@ -1,0 +1,12 @@
+@import '../../design-tokens/theme-1/component.scss';
+/*------------------------------------*\
+ # DEFINITION-LIST
+\*------------------------------------*/
+
+/**
+ * 1) Horizontal styling for description list
+ */
+.fusion-c-definition-list {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,201 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+
+/**
+ * 1) Layout wrapper that houses layout section components to create a layouts like
+ * sidebar layouts that are 1 row across and not a grid.
+ * 2) Layout that is stacked on small screens and turns into a main column
+ *    right sidebar on larger screens. Default is a 60%/40% layout
+ * 2) The main column stretches the full width minus the sidebar width and gap.
+ *    The sidebar column can either take in a sidebar width custom property. If that's
+ *    not defined, fall back to 40%. calc is used to account for half of the gap in between items.
+ */
+.fusion-c-layout {
+  display: grid;
+  gap: size(2);
+  grid-template-columns: minmax(0, 1fr);
+
+  @media all and (min-width: $fusion-bp-lg) {
+    grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(1))); /* 2 */
+  }
+}
+
+/**
+ * Right sidebar layout break faster
+ * 1) Right sidebar layout that breaks to a sidebar layout at a smaller viewport than default
+ */
+.fusion-c-layout--break-faster {
+  @media all and (min-width: $fusion-bp-md) {
+    grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(1))); /* 2 */
+  }
+}
+
+/**
+ * Right sidebar layout break slower
+ * 1) Right sidebar layout that breaks to a sidebar layout at a large viewport than default
+ */
+.fusion-c-layout--break-slower {
+  @media all and (min-width: $fusion-bp-lg) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media all and (min-width: $fusion-bp-xl) {
+    grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(1))); /* 2 */
+  }
+}
+
+/**
+ * Layout gap none
+ * 1) Remove the gap between items on lg screens only when items sit beside one another
+ */
+.fusion-c-layout--gap-none {
+  @media all and (min-width: $fusion-bp-lg) {
+    gap: 0;
+    grid-template-columns: minmax(0, 1fr) var(--fusion-sidebar-width, 40%); /* 2 */
+  }
+
+  &.fusion-c-layout--break-faster {
+    @media all and (min-width: $fusion-bp-md) {
+      gap: 0;
+      grid-template-columns: minmax(0, 1fr) var(--fusion-sidebar-width, 40%); /* 2 */
+    }
+  }
+
+  &.fusion-c-layout--break-slower {
+    @media all and (min-width: $fusion-bp-lg) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: size(2); // Match small screen stacked gap
+    }
+
+    @media all and (min-width: $fusion-bp-xl) {
+      grid-template-columns: minmax(0, 1fr) var(--fusion-sidebar-width, 40%); /* 2 */
+    }
+  }
+}
+
+/**
+ * Layout gap none
+ * 1) Shrink the gap to 8px between items on lg screens only when items sit beside one another
+ */
+.fusion-c-layout--gap-sm {
+  @media all and (min-width: $fusion-bp-lg) {
+    gap: size(1);
+    grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(0.5)));
+  }
+
+  &.fusion-c-layout--break-faster {
+    @media all and (min-width: $fusion-bp-md) {
+      gap: 0;
+      grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(0.5))); /* 2 */
+    }
+  }
+
+  &.fusion-c-layout--break-slower {
+    @media all and (min-width: $fusion-bp-lg) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: size(2); // Match small screen stacked gap
+    }
+
+    @media all and (min-width: $fusion-bp-xl) {
+      grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(0.5))); /* 2 */
+    }
+  }
+}
+
+/**
+ * Layout gap none
+ * 1) Shrink the gap to 24px between items on lg screens only when items sit beside one another
+ */
+.fusion-c-layout--gap-lg {
+  @media all and (min-width: $fusion-bp-lg) {
+    gap: size(3);
+    grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(1.5)));
+  }
+
+  &.fusion-c-layout--break-faster {
+    @media all and (min-width: $fusion-bp-md) {
+      gap: 0;
+      grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(1.5))); /* 2 */
+    }
+  }
+
+  &.fusion-c-layout--break-slower {
+    @media all and (min-width: $fusion-bp-lg) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: size(2); // Match small screen stacked gap
+    }
+
+    @media all and (min-width: $fusion-bp-xl) {
+      grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(1.5))); /* 2 */
+    }
+  }
+}
+
+/**
+ * Layout gap xl
+ * 1) Widen the gap to 32px between items on lg screens only when items sit beside one another
+ */
+.fusion-c-layout--gap-xl {
+  @media all and (min-width: $fusion-bp-lg) {
+    gap: size(4);
+    grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(2)));
+  }
+
+  &.fusion-c-layout--break-faster {
+    @media all and (min-width: $fusion-bp-md) {
+      gap: 0;
+      grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(2))); /* 2 */
+    }
+  }
+
+  &.fusion-c-layout--break-slower {
+    @media all and (min-width: $fusion-bp-lg) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: size(2); // Match small screen stacked gap
+    }
+
+    @media all and (min-width: $fusion-bp-xl) {
+      grid-template-columns: minmax(0, 1fr) calc(var(--fusion-sidebar-width, 40%) - (size(2))); /* 2 */
+    }
+  }
+}
+
+/**
+ * Left sidebar layout
+ * 1) Layout that is stacked on small screens and turns into a left sidebar with main
+ * content to the right
+ * 2) The main column stretches the full width minus the sidebar width and gap.
+ *    The sidebar column has a minimum width value (enough to accommodate navigation
+ *    and other sidebar content) but stretches to fit the content placed inside it.
+ */
+.fusion-c-layout--left-sidebar {
+  @media all and (min-width: $fusion-bp-lg) {
+    grid-template-columns: calc(var(--fusion-sidebar-width, 40%) - (size(1))) minmax(0, 1fr); /* 2 */
+  }
+}
+
+/**
+ * Left sidebar layout break faster
+ * 1) Left sidebar layout that breaks to a sidebar layout at a smaller viewport than default
+ */
+.fusion-c-layout--left-sidebar.fusion-c-layout--break-faster {
+  @media all and (min-width: $fusion-bp-md) {
+    grid-template-columns: calc(var(--fusion-sidebar-width, 40%) - (size(1))) minmax(0, 1fr); /* 2 */
+  }
+}
+
+/**
+ * Left sidebar layout break slower
+ * 1) Left sidebar layout that breaks to a sidebar layout at a large viewport than default
+ */
+.fusion-c-layout--left-sidebar.fusion-c-layout--break-slower {
+  @media all and (min-width: $fusion-bp-lg) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media all and (min-width: $fusion-bp-xl) {
+    grid-template-columns: calc(var(--fusion-sidebar-width, 40%) - (size(1))) minmax(0, 1fr); /* 2 */
+  }
+}

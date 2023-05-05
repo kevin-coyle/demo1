@@ -1,0 +1,117 @@
+/* ------------------------------------*\
+    #TYPOGRAPHY APPLICATIONS
+\*------------------------------------ */
+
+//
+// Typography applications are Tier 2 values that map
+// typography presets to high-level UI applications.
+//
+
+//
+// Display text
+//
+
+@mixin fusion-theme-typography-display-xl($important: null) {
+  @include fusion-typography-preset-1($important);
+}
+
+@mixin fusion-theme-typography-display-lg($important: null) {
+  @include fusion-typography-preset-2-bold($important);
+}
+
+@mixin fusion-theme-typography-display($important: null) {
+  @include fusion-typography-preset-3-bold($important);
+}
+
+@mixin fusion-theme-typography-display-sm($important: null) {
+  @include fusion-typography-preset-4-bold($important);
+}
+
+//
+// Headline text
+//
+@mixin fusion-theme-typography-headline-lg($important: null) {
+  @include fusion-typography-preset-5-bold($important);
+}
+
+@mixin fusion-theme-typography-headline($important: null) {
+  @include fusion-typography-preset-6-bold($important);
+}
+
+//
+// Title text
+//
+@mixin fusion-theme-typography-title($important: null) {
+  @include fusion-typography-preset-6-bold($important);
+}
+
+@mixin fusion-theme-typography-title-sm($important: null) {
+  @include fusion-typography-preset-6-bold($important);
+}
+
+//
+// Label text
+//
+@mixin fusion-theme-typography-label-sm($important: null) {
+  @include fusion-typography-preset-7($important);
+}
+
+@mixin fusion-theme-typography-label($important: null) {
+  @include fusion-typography-preset-5($important);
+}
+
+@mixin fusion-theme-typography-label-lg($important: null) {
+  @include fusion-typography-preset-4($important);
+}
+
+//
+// Button
+//
+@mixin fusion-theme-typography-button($important: null) {
+  @include fusion-typography-preset-8-bold($important);
+}
+
+//
+// Small Button
+//
+@mixin fusion-theme-typography-button-sm($important: null) {
+  @include fusion-typography-preset-8($important);
+}
+
+//
+// Large Button
+//
+@mixin fusion-theme-typography-button-lg($important: null) {
+  @include fusion-typography-preset-9($important);
+}
+
+//
+// Body text
+//
+@mixin fusion-theme-typography-body-lg($important: null) {
+  @include fusion-typography-preset-4($important);
+}
+
+@mixin fusion-theme-typography-body-lg-bold($important: null) {
+  @include fusion-typography-preset-4-bold($important);
+}
+
+@mixin fusion-theme-typography-body($important: null) {
+  @include fusion-typography-preset-5($important);
+}
+
+@mixin fusion-theme-typography-body-medium($important: null) {
+  @include fusion-typography-preset-5-medium($important);
+}
+
+@mixin fusion-theme-typography-body-bold($important: null) {
+  @include fusion-typography-preset-5-bold($important);
+}
+
+@mixin fusion-theme-typography-body-sm($important: null) {
+  @include fusion-typography-preset-6($important);
+}
+
+@mixin fusion-theme-typography-body-sm-bold($important: null) {
+  @include fusion-typography-preset-6-bold($important);
+}

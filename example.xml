@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company>
+  <employee>
+    <name>Archer the beagles</name>
+    <position>Software Engineer</position>
+        <action>fire</action>
+  </employee>
+  <employee>
+    <name>Skye the Sheagle</name>
+    <position>Product Manager</position>
+    <action>promote</action>
+  </employee>
+</company>

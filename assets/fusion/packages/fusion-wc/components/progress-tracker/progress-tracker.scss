@@ -1,0 +1,32 @@
+@import '../../design-tokens/theme-1/component.scss';
+/*------------------------------------*\
+ #PROGRESS-TRACKER
+\*------------------------------------*/
+
+/** 
+ * 1) 
+ */
+.fusion-c-progress-tracker {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fusion-c-progress-tracker--horizontal {
+  display: flex;
+  --fusion-progress-tracker-item-padding-right: #{size(6)};
+  --fusion-progress-tracker-item-padding-bottom: 0;
+  --fusion-progress-track-link-margin-right: 0;
+  --fusion-progress-track-link-active-margin-bottom: #{size(1)};
+  --fusion-progress-track-link-margin-bottom: #{size(2)};
+  --fusion-progress-track-link-active-before-top: 0;
+  --fusion-progress-track-link-before-top: 3px;
+  --fusion-progress-tracker-item-after-top: #{size(1.375)};
+  --fusion-progress-tracker-item-after-left: #{size(2.25)};
+  --fusion-progress-tracker-item-active-after-left: #{size(3)};
+  --fusion-progress-tracker-item-after-height: 1px;
+  --fusion-progress-tracker-item-after-width: calc(100% - #{size(2)});
+  --fusion-progress-tracker-item-active-after-width: calc(100% - #{size(2.5)});
+  --fusion-progress-track-link-flex-direction: column;
+  overflow: auto;
+}

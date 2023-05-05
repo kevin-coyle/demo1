@@ -1,0 +1,108 @@
+@import 'THEME/component.scss';
+
+/* ------------------------------------*\
+    #RADIO FIELD
+\*------------------------------------ */
+
+/**
+ * 1) Fieldset of items where multiple items can be selected
+ */
+.fusion-c-fieldset {
+  color: var(--fusion-theme-color-content-xstrong);
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Inverted fieldset
+ */
+.fusion-c-fieldset--inverted {
+  color: var(--fusion-theme-color-content-knockout);
+  --fusion-radio-field-item-color: var(--fusion-theme-color-content-knockout);
+}
+
+/**
+ * Disabled fieldset
+ */
+.fusion-c-fieldset--disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: var(--fusion-theme-color-content-disabled);
+}
+
+.fusion-c-fieldset--boxed {
+  --fusion-radio-field-item-flex-direction: column;
+  --fusion-radio-field-item-label-box-shadow: var(--fusion-theme-box-shadow-sm);
+  --fusion-radio-field-item-label-padding: #{size(2)} #{size(2)} #{size(2)} #{size(6)};
+  --fusion-radio-field-item-label-border-radius: var(--fusion-border-radius-md);
+  --fusion-c-radio-field-item-label-checked-border: 2px solid var(--fusion-theme-color-border-brand-tertiary);
+  --fusion-c-radio-field-item-label-checked-background: var(--fusion-theme-color-background-brand-tertiary-light);
+  --fusion-radio-input-position: absolute;
+  --fusion-radio-input-inset-block-start: #{size(2)};
+  --fusion-radio-input-inset-inline-start: #{size(2)};
+}
+
+/**
+ * fieldset legend
+ */
+.fusion-c-fieldset__legend {
+  @include fusion-theme-typography-label;
+  display: inline-block;
+  margin-block-end: size(1.5);
+
+  .fusion-c-fieldset--lg & {
+    @include fusion-theme-typography-label-lg;
+  }
+}
+
+/**
+ * fieldset list
+ */
+.fusion-c-fieldset__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /**
+   * Display the radio iitems in a horizontal list
+   */
+  .fusion-c-fieldset--horizontal & {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-block-start: size(-1.5);
+    margin-inline-start: size(-2);
+  }
+
+  .fusion-c-fieldset--boxed & {
+    align-items: unset;
+  }
+
+  /**
+   * Radio field list within horizontal and center aligned variants
+   */
+  .fusion-c-fieldset--horizontal.fusion-c-fieldset--align-center & {
+    justify-content: center;
+  }
+}
+
+/**
+ * Shared styles in slotted checkbox and radio field items
+ */
+.fusion-c-fieldset--horizontal ::slotted(fusion-radio-field-item) {
+  display: block;
+  margin-block-start: size(1.5);
+  margin-inline-start: size(2);
+}
+
+.fusion-c-fieldset--horizontal.fusion-c-fieldset--align-center ::slotted(fusion-radio-field-item) {
+}
+
+/**
+ * Slotted radio field items
+ * 1) Remove margin top from items when horizontal orientation
+ */
+.fusion-c-fieldset--horizontal ::slotted(fusion-radio-field-item) {
+  --fusion-radio-field-item-margin-top: 0;
+}

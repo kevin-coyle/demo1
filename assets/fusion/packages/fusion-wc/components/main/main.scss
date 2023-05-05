@@ -1,0 +1,14 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #MAIN
+\*------------------------------------*/
+
+/**
+ * 1) Container for the main content on the page between the header and footer
+ * 2) Set to flex: 1 0 auto for a footer that gets pushed all the way to the bottom
+ * for pages that don't have a lot of content
+ */
+:host {
+  display: block;
+  flex: 1 0 auto; /* 2 */
+}

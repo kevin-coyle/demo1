@@ -1,0 +1,68 @@
+@import 'THEME/component.scss';
+/*------------------------------------*\
+    #TEXT-LINK
+\*------------------------------------*/
+
+/**
+ * 1) General text link used across the product
+ */
+.fusion-c-text-link {
+  @include fusion-theme-typography-body();
+  display: inline-flex;
+  text-decoration: none;
+  color: var(--fusion-theme-color-content-link-default);
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--fusion-theme-color-content-link-hover);
+  }
+
+  &:active {
+    color: var(--fusion-theme-color-content-link-active);
+  }
+
+  &:visited {
+    color: var(--fusion-theme-color-content-link-visited);
+  }
+}
+
+/**
+* Display text link
+* 1) Used for items like article title links
+*/
+.fusion-c-text-link--display {
+  color: var(--fusion-theme-color-content-default);
+}
+
+/**
+ * A secondary link list
+ * 1) Uses a more subtle treatment than the default link list
+ */
+.fusion-c-text-link--secondary {
+  color: var(--fusion-theme-color-content-subtle);
+}
+
+/**
+* Inverted text link
+* 1) Used on dark backgrounds
+*/
+.fusion-c-text-link--inverted {
+  color: var(--fusion-theme-color-content-knockout);
+}
+
+/**
+* Small text link
+* 1) Shrink the typography size
+*/
+.fusion-c-text-link--sm {
+  @include fusion-theme-typography-body-sm();
+}
+
+/**
+* Text link after
+* 1) Container used to place items after the text link
+*/
+.fusion-c-text-link__after {
+  margin-left: size(1);
+}

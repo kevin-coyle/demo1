@@ -1,0 +1,1 @@
+{"version":3,"file":"linelength-container.d.ts","sourceRoot":"","sources":["../../../../components/linelength-container/linelength-container.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,aAAa,EAAE,MAAM,kBAAkB,CAAC;AAGjD;;GAEG;AACH,qBACa,yBAA0B,SAAQ,aAAa;IAC1D,MAAM,KAAK,MAAM,4BAEhB;IAED,MAAM;CASP;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,6BAA6B,EAAE,yBAAyB,CAAC;KAC1D;CACF"}
