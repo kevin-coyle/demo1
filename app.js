@@ -8,12 +8,12 @@ const port = 3000;
 // Serve static assets from the "assets" directory
 app.use('/assets', express.static('assets'));
 
-// Load XML and XSLT files
-const xmlString = fs.readFileSync('example.xml', 'utf-8');
-const xsltString = fs.readFileSync('template.xsl', 'utf-8');
-const htmlTemplate = fs.readFileSync('index.html', 'utf-8');
-
 app.get('/', (req, res) => {
+  // Load XML and XSLT files
+  const xmlString = fs.readFileSync('example.xml', 'utf-8');
+  const xsltString = fs.readFileSync('template.xsl', 'utf-8');
+  const htmlTemplate = fs.readFileSync('index.html', 'utf-8');
+
   // Parse the XML and XSLT documents
   const xmlDocument = xsltProcessor.xmlParse(xmlString);
   const xsltDocument = xsltProcessor.xmlParse(xsltString);

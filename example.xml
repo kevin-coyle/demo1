@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <company>
   <employee>
-    <name>Archer the beagles</name>
-    <position>Software Engineer</position>
-        <action>fire</action>
+    <name>UPS is making a new design system!</name>
+    <position>Let's talk about how this is going to make things better</position>
   </employee>
   <employee>
-    <name>Skye the Sheagle</name>
-    <position>Product Manager</position>
-    <action>promote</action>
+    <name>Web components are amazing</name>
+    <position>This template uses XML and XSLT just like Open Text's Team Site!</position>
+  </employee>
+  <employee>
+    <name>What exactly are design systems?</name>
+    <position>Click here to see more about them and what they do</position>
   </employee>
 </company>

@@ -3,24 +3,30 @@
   <xsl:output method="html" encoding="UTF-8"/>
 
   <xsl:template match="/">
-        <h1>Company Employees</h1>
+    <html>
+      <head>
+        <title>Company Employees</title>
+      </head>
+      <body>
+        <fusion-heading tagName="h1">Card Example</fusion-heading>
+                <fusion-grid variant="1-3up">
+                <xsl:apply-templates select="company/employee"/>
+        </fusion-grid>
+      </body>
+    </html>
   </xsl:template>
 
   <xsl:template match="employee">
-    <tr>
-      <td>
-        <xsl:value-of select="name"/>
-      </td>
-      <td>
-        <xsl:value-of select="position"/>
-      </td>
-      <td>
-        <fusion-button variant="primary">
-            <xsl:attribute name="text">
-            <xsl:value-of select="action"/>
-            </xsl:attribute>
-        </fusion-button>
-      </td>
-    </tr>
+                <fusion-grid-item>
+                    <fusion-card>
+                        <img slot="header" src="/assets/card.jpg" alt="placeholder" />
+                        <fusion-heading tagName="h2" variant="headline"><xsl:value-of select="name"/></fusion-heading>
+                        <fusion-text-passage><xsl:value-of select="position"/></fusion-text-passage>
+                        <fusion-button-group slot="footer">
+                        <fusion-button variant="primary" text="Button 1"></fusion-button>
+                        <fusion-button variant="link" text="Button 2"></fusion-button>
+                    </fusion-button-group>
+                    </fusion-card>
+            </fusion-grid-item>
   </xsl:template>
 </xsl:stylesheet>

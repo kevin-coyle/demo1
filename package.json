@@ -2,9 +2,9 @@
   "name": "ups-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon app.js -e js,xml,xsl,html --ignore node_modules/"
   },
   "author": "",
   "license": "ISC",
